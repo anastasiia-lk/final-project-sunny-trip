@@ -15,8 +15,7 @@ export default function Layout(props) {
           props.page === 'home'
             ? {
                 padding: 260,
-                backgroundImage:
-                  'url(' + 'https://jooinn.com/images/sunny-1.jpg' + ')',
+                backgroundImage: 'url(' + '/sunny-1.jpg' + ')',
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
