@@ -1,10 +1,13 @@
+import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../components/Layout';
+import nextCookies from 'next-cookies';
+import { isSessionTokenValid } from '../util/auth';
 
-export default function Home() {
+export default function PlanTrip(props) {
   return (
-    <Layout>
+    <Layout loggedIn={props.loggedIn}>
       <Head>
         <title>Plan Trip</title>
       </Head>
@@ -21,4 +24,11 @@ export default function Home() {
       </main>
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { session: token } = nextCookies(context);
+  return {
+    props: { loggedIn: await isSessionTokenValid(token) },
+  };
 }

@@ -5,23 +5,22 @@ import Layout from '../components/Layout';
 import nextCookies from 'next-cookies';
 import { isSessionTokenValid } from '../util/auth';
 
-export default function weatherForecast(props) {
+export default function StartingPoint(props) {
   return (
     <Layout loggedIn={props.loggedIn}>
       <Head>
-        <title>Weather Forecast</title>
+        <title>Plan Trip</title>
       </Head>
       <main>
-        <div className="tripWishList">
-          <div>Sunny weather forecast</div>
+        <div className="planTrip">
+          <button className="planTripItem1">Starting point</button>
+          <button className="planTripItem2">Trip date</button>
+          <button className="planTripItem3">Maximum distance</button>
+          <button className="planTripItem4">Weather forecast</button>
         </div>
-        <ul className="tripWishListCities">
-          <li>City_1</li>
-          <li>City_2</li>
-          <li>City_3</li>
-          <li>City_4</li>
-          <li>City_5</li>
-        </ul>
+        <div className="planTripButton">
+          <button>Plan My Trip</button>
+        </div>
       </main>
     </Layout>
   );
