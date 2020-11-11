@@ -1,3 +1,5 @@
+import React, { Component, useState } from 'react';
+import GoogleMapReact from 'google-map-react';
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -5,46 +7,59 @@ import Layout from '../components/Layout';
 import nextCookies from 'next-cookies';
 import { isSessionTokenValid } from '../util/auth';
 
-export default function StartingPoint(props) {
+const AnyReactComponent = ({ text }) => (
+  <div
+    style={{ width: '120', height: '120', borderRadius: '50%', color: 'red' }}
+  >
+    {text}
+  </div>
+);
+
+export default function startingPoint(props) {
+  const key_google_maps = process.env.REACT_APP_WEATHER_APP_API_KEY;
+  const [latcur, setlatcur] = useState(59.95);
+  const [lngcur, setlngcur] = useState(30.33);
   function getLocation() {
     navigator.geolocation.getCurrentPosition(
-      async (position) => {
+      (position) => {
         console.log({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
         });
-        const getPromise = await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=AIzaSyCjtpIUFEUc6gX-dhpHaDX4BzdkNtUQ28w`,
-        );
-        const getObject = await getPromise.json();
-        const print = getObject.results[2].address_components[3].long_name;
-        console.log('Printget', print);
-
-        const getCitiesPromise = await fetch(
-          `https://wft-geo-db.p.rapidapi.com//v1/geo/locations/+48.203161099999996+16.3850746/nearbyCities?limit=5&offset=0&radius=100`,
-        );
-        const getCitiesPromiseObject = await getCitiesPromise.json();
-        console.log('getCitiesPromiseObject', getCitiesPromiseObject);
+        const newLatcur = position.coords.latitude;
+        const newLngcur = position.coords.longitude;
+        setlatcur(newLatcur);
+        setlngcur(newLngcur);
       },
       (err) => console.log(err),
     );
   }
   return (
+    // Important! Always set the container height explicitly
     <Layout loggedIn={props.loggedIn}>
       <Head>
         <title>Plan Trip</title>
       </Head>
-      <main>
-        <div className="planTrip">
-          <button className="planTripItem1">Starting point</button>
-          <button className="planTripItem2">Trip date</button>
-          <button className="planTripItem3">Maximum distance</button>
-          <button className="planTripItem4">Weather forecast</button>
-        </div>
-        <div className="planTripButton">
-          <button>Next Step</button>
-        </div>
-      </main>
+      <div style={{ height: '50vh', width: '100%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: key_google_maps }}
+          defaultCenter={{
+            lat: latcur,
+            lng: lngcur,
+          }}
+          defaultZoom={1}
+        >
+          <AnyReactComponent lat={latcur} lng={lngcur} text={'📍'} />
+        </GoogleMapReact>
+
+        <button
+          className="indexButton"
+          onClick={getLocation}
+          style={{ height: 100, weight: 1000 }}
+        >
+          Get My Current Location
+        </button>
+      </div>
     </Layout>
   );
 }
