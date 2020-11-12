@@ -4,23 +4,25 @@ import Link from 'next/link';
 import Layout from '../components/Layout';
 import nextCookies from 'next-cookies';
 import { isSessionTokenValid } from '../util/auth';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import React, { useState } from 'react';
 
-export default function StartingPoint(props) {
+export default function tripDate(props) {
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <Layout loggedIn={props.loggedIn}>
       <Head>
-        <title>Plan Trip</title>
+        <title>Plan Trip Date</title>
       </Head>
       <main>
-        <div className="planTrip">
-          <button className="planTripItem1">Starting point</button>
-          <button className="planTripItem2">Trip date</button>
-          <button className="planTripItem3">Maximum distance</button>
-          <button className="planTripItem4">Weather forecast</button>
-        </div>
-        <div className="planTripButton">
-          <button>Plan My Trip</button>
-        </div>
+        <div>Select Trip Date</div>
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+        >
+          <div style={{ color: 'red' }}>Don't forget to check the weather!</div>
+        </DatePicker>
       </main>
     </Layout>
   );

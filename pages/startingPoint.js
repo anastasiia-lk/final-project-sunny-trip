@@ -49,7 +49,7 @@ export default function startingPoint(props) {
           }}
           defaultZoom={1}
         >
-          <AnyReactComponent lat={latcur} lng={lngcur} text={'📍'} />
+          <AnyReactComponent lat={latcur} lng={lngcur} text="📍" />
         </GoogleMapReact>
 
         <button
