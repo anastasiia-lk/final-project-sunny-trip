@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 export default function weatherForecast(props) {
   const key_weather_api = process.env.REACT_APP_OPENWEATHER_APP_API_KEY;
   const [weather, setWeather] = useState('');
+  const [tripDate, setTripDate] = useState('');
   const [icon, setIcon] = useState(
     'http://openweathermap.org/img/wn/10d@2x.png',
   );
@@ -27,6 +28,12 @@ export default function weatherForecast(props) {
           '@2x.png';
         console.log(newIcon);
         setIcon(newIcon);
+        const unixTimestamp = res.daily[0].dt;
+        console.log(JSON.stringify(unixTimestamp));
+        const dateObj = new Date(unixTimestamp * 1000);
+        const utcString = dateObj.toUTCString();
+        setTripDate(utcString);
+        console.log(utcString);
       });
   }
   return (
@@ -47,7 +54,7 @@ export default function weatherForecast(props) {
             {weather?.daily?.[0]?.wind_speed} metre/sec//
             {weather?.daily?.[0]?.weather?.[0]?.icon}//
             {weather?.daily?.[0]?.weather?.[0]?.main}//
-            {weather?.daily?.[0]?.weather?.[0]?.description}//
+            {weather?.daily?.[0]?.weather?.[0]?.description}//{tripDate}
             <img src={icon} alt="weather" />
           </li>
           {/* <li>{weather.daily[0]}</li>
