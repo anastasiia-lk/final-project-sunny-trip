@@ -8,10 +8,11 @@ import React, { useState } from 'react';
 
 export default function maxDistance(props) {
   const [distance, setDistance] = useState(0);
+  const [population, setPopulation] = useState(0);
   const [cities, setCities] = useState([]);
   async function getCities() {
     const getPromiseCities = await fetch(
-      'https://wft-geo-db.p.rapidapi.com/v1/geo/locations/48.2030964+16.3851084/nearbyCities?radius=100000&limit=10&minPopulation=1000000',
+      `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/48.2030964+16.3851084/nearbyCities?radius=${distance}&limit=10&minPopulation=${population}`,
       {
         method: 'GET',
         headers: {
@@ -38,9 +39,16 @@ export default function maxDistance(props) {
         <input
           type="text"
           id="distance"
-          placeholder="Enter distance"
+          placeholder="Enter distance (km)"
           // className="bottomText"
           onChange={(event) => setDistance(event.currentTarget.value)}
+        />
+        <input
+          type="text"
+          id="population"
+          placeholder="Enter population"
+          // className="bottomText"
+          onChange={(event) => setPopulation(event.currentTarget.value)}
         />
         <br />
         <button onClick={getCities}>Get Cities</button>
