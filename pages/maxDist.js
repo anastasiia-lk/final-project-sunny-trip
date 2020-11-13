@@ -10,6 +10,7 @@ export default function maxDistance(props) {
   const [distance, setDistance] = useState(0);
   const [population, setPopulation] = useState(0);
   const [cities, setCities] = useState([]);
+  const [checkedCity, setCheckedCity] = useState('');
   async function getCities() {
     const getPromiseCities = await fetch(
       `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/48.2030964+16.3851084/nearbyCities?radius=${distance}&limit=10&minPopulation=${population}`,
@@ -29,6 +30,10 @@ export default function maxDistance(props) {
     const newCityList = getObject.data.filter((item) => item.type === 'CITY');
     console.log('newCityList', newCityList);
     setCities(newCityList);
+  }
+  function getCheckedCity(item) {
+    // setCheckedCity(item);
+    console.log(item);
   }
   return (
     <Layout loggedIn={props.loggedIn}>
@@ -54,7 +59,18 @@ export default function maxDistance(props) {
         <button onClick={getCities}>Get Cities</button>
         <ul className="tripWishListCities">
           {cities.map((item) => (
-            <li>{item.city}</li>
+            <li>
+              {item.city}
+              {'             '}
+
+              <button className="checkedCity" onClick={getCheckedCity(item)}>
+                Check
+              </button>
+              {/* <input
+                type="checkbox"
+                onChange={(event) => checkedCity(item)}
+              ></input> */}
+            </li>
           ))}
           {/* (
             <li>{item.city}</li>
