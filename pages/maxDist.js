@@ -17,8 +17,7 @@ export default function maxDistance(props) {
       {
         method: 'GET',
         headers: {
-          'x-rapidapi-key':
-            '0cf8229241msh121566db8780254p144dfdjsnfc37d01888ca',
+          'x-rapidapi-key': 'key',
           'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
         },
       },

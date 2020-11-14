@@ -11,9 +11,9 @@ import React, { useState } from 'react';
 export default function tripDate(props) {
   const [startDate, setStartDate] = useState(new Date());
   return (
-    <Layout loggedIn={props.loggedIn}>
+    <Layout loggedIn={props.loggedIn} page="step1">
       <Head>
-        <title>Plan Trip Date</title>
+        <title>Trip Date</title>
       </Head>
       <main>
         <div>Select Trip Date</div>

@@ -9,7 +9,7 @@ export default function Layout(props) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header loggedIn={props.loggedIn} />
+      <Header loggedIn={props.loggedIn} page={props.page} />
       <main
         style={
           props.page === 'home'

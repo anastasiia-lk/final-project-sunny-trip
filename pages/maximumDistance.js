@@ -7,9 +7,9 @@ import { isSessionTokenValid } from '../util/auth';
 
 export default function StartingPoint(props) {
   return (
-    <Layout loggedIn={props.loggedIn}>
+    <Layout loggedIn={props.loggedIn} page="step2">
       <Head>
-        <title>Plan Trip</title>
+        <title>Maximum Distance</title>
       </Head>
       <main>
         <div className="planTrip">

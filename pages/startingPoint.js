@@ -36,9 +36,9 @@ export default function startingPoint(props) {
   }
   return (
     // Important! Always set the container height explicitly
-    <Layout loggedIn={props.loggedIn}>
+    <Layout loggedIn={props.loggedIn} page="step0">
       <Head>
-        <title>Plan Trip</title>
+        <title>Starting Point</title>
       </Head>
       <div style={{ height: '50vh', width: '100%' }}>
         <GoogleMapReact

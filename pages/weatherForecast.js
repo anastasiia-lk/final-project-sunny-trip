@@ -15,7 +15,7 @@ export default function weatherForecast(props) {
   );
   function getWeather() {
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=48.2030964&lon=16.3851084&exclude=current,minutely,hourly,alerts&units=metric&appid=${key_weather_api}`,
+      `https://api.openweathermap.org/data/2.5/onecall?lat=48.2030964&lon=16.3851084&exclude=current,minutely,hourly,alerts&units=metric&appid=6ba39f42dec962922960a70c23f20cd4`,
     )
       .then((response) => response.json())
       .then((res) => {
@@ -24,11 +24,11 @@ export default function weatherForecast(props) {
         const test = JSON.stringify(res);
         const newIcon =
           'http://openweathermap.org/img/wn/' +
-          res.daily[0].weather[0].icon +
+          res.daily[6].weather[0].icon +
           '@2x.png';
         console.log(newIcon);
         setIcon(newIcon);
-        const unixTimestamp = res.daily[0].dt;
+        const unixTimestamp = res.daily[6].dt;
         console.log(JSON.stringify(unixTimestamp));
         const dateObj = new Date(unixTimestamp * 1000);
         const utcString = dateObj.toUTCString();
@@ -37,7 +37,7 @@ export default function weatherForecast(props) {
       });
   }
   return (
-    <Layout loggedIn={props.loggedIn}>
+    <Layout loggedIn={props.loggedIn} page="step3">
       <Head>
         <title>Weather Forecast</title>
       </Head>
@@ -47,16 +47,20 @@ export default function weatherForecast(props) {
         </div>
         <button onClick={getWeather}>Get Weather</button>
         <ul className="tripWishListCities">
+          {/* {weather.map((item) => ( */}
           <li>
-            {weather?.daily?.[0]?.dt}//{weather?.daily?.[0]?.temp?.day}//
-            {weather?.daily?.[0]?.pressure} hPa//
-            {weather?.daily?.[0]?.humidity} %//
-            {weather?.daily?.[0]?.wind_speed} metre/sec//
-            {weather?.daily?.[0]?.weather?.[0]?.icon}//
-            {weather?.daily?.[0]?.weather?.[0]?.main}//
-            {weather?.daily?.[0]?.weather?.[0]?.description}//{tripDate}
+            {weather?.daily?.[6]?.dt}//
+            {tripDate}//
+            {weather?.daily?.[6]?.temp?.day}//
+            {weather?.daily?.[6]?.pressure} hPa//
+            {weather?.daily?.[6]?.humidity} %//
+            {weather?.daily?.[6]?.wind_speed} metre/sec//
+            {weather?.daily?.[6]?.weather?.[0]?.icon}//
+            {weather?.daily?.[6]?.weather?.[0]?.main}//
+            {weather?.daily?.[6]?.weather?.[0]?.description}//
             <img src={icon} alt="weather" />
           </li>
+          {/* ))} */}
           {/* <li>{weather.daily[0]}</li>
           <li>{weather.daily[1]}</li>
           <li>{weather.daily[2]}</li>
