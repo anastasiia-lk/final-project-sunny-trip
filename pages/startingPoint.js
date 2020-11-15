@@ -51,14 +51,18 @@ export default function startingPoint(props) {
         >
           <AnyReactComponent lat={latcur} lng={lngcur} text="📍" />
         </GoogleMapReact>
-
-        <button
-          className="indexButton"
-          onClick={getLocation}
-          style={{ height: 100, weight: 1000 }}
-        >
-          Get My Current Location
-        </button>
+        <div className="location">
+          <button className="indexButton" onClick={getLocation}>
+            Get My Current Location
+          </button>
+          <div className="locationButtonBox">
+            <Link href="/tripDate">
+              <a>
+                <button className="locationButton">Next</button>
+              </a>
+            </Link>
+          </div>
+        </div>
       </div>
     </Layout>
   );

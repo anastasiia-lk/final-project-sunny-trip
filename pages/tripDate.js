@@ -16,13 +16,29 @@ export default function tripDate(props) {
         <title>Trip Date</title>
       </Head>
       <main>
-        <div>Select Trip Date</div>
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-        >
-          <div style={{ color: 'red' }}>Don't forget to check the weather!</div>
-        </DatePicker>
+        <div className="location">
+          <div className="dateText">Select Trip Date</div>
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+          >
+            <div style={{ color: 'red' }}>
+              Don't forget to check the weather!
+            </div>
+          </DatePicker>
+          <div className="locationButtonBox">
+            <Link href="/startingPoint">
+              <a>
+                <button className="locationButton">Back</button>
+              </a>
+            </Link>
+            <Link href="/maxDist">
+              <a>
+                <button className="locationButton">Next</button>
+              </a>
+            </Link>
+          </div>
+        </div>
       </main>
     </Layout>
   );

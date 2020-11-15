@@ -42,26 +42,29 @@ export default function weatherForecast(props) {
         <title>Weather Forecast</title>
       </Head>
       <main>
-        <div className="tripWishList">
-          <div>Sunny weather forecast</div>
-        </div>
-        <button onClick={getWeather}>Get Weather</button>
-        <ul className="tripWishListCities">
-          {/* {weather.map((item) => ( */}
-          <li>
-            {weather?.daily?.[6]?.dt}//
-            {tripDate}//
-            {weather?.daily?.[6]?.temp?.day}//
-            {weather?.daily?.[6]?.pressure} hPa//
-            {weather?.daily?.[6]?.humidity} %//
-            {weather?.daily?.[6]?.wind_speed} metre/sec//
-            {weather?.daily?.[6]?.weather?.[0]?.icon}//
-            {weather?.daily?.[6]?.weather?.[0]?.main}//
-            {weather?.daily?.[6]?.weather?.[0]?.description}//
-            <img src={icon} alt="weather" />
-          </li>
-          {/* ))} */}
-          {/* <li>{weather.daily[0]}</li>
+        <div className="location">
+          {/* <div className="tripWishList"> */}
+          {/* <div className="dateText">Sunny weather forecast</div> */}
+          {/* </div> */}
+          <button onClick={getWeather} className="indexButton">
+            Get Weather
+          </button>
+          <ul className="tripWishListCities">
+            {/* {weather.map((item) => ( */}
+            <li>
+              {weather?.daily?.[6]?.dt}//
+              {tripDate}//
+              {weather?.daily?.[6]?.temp?.day}//
+              {weather?.daily?.[6]?.pressure} hPa//
+              {weather?.daily?.[6]?.humidity} %//
+              {weather?.daily?.[6]?.wind_speed} metre/sec//
+              {weather?.daily?.[6]?.weather?.[0]?.icon}//
+              {weather?.daily?.[6]?.weather?.[0]?.main}//
+              {weather?.daily?.[6]?.weather?.[0]?.description}//
+              <img src={icon} alt="weather" />
+            </li>
+            {/* ))} */}
+            {/* <li>{weather.daily[0]}</li>
           <li>{weather.daily[1]}</li>
           <li>{weather.daily[2]}</li>
           <li>{weather.daily[3]}</li>
@@ -69,7 +72,20 @@ export default function weatherForecast(props) {
           <li>{weather.daily[5]}</li>
           <li>{weather.daily[6]}</li>
           <li>{weather.daily[7]}</li> */}
-        </ul>
+          </ul>
+          <div className="locationButtonBox">
+            <Link href="/maxDist">
+              <a>
+                <button className="locationButton">Back</button>
+              </a>
+            </Link>
+            <Link href="/weatherForecast">
+              <a>
+                <button className="locationButton">Next</button>
+              </a>
+            </Link>
+          </div>
+        </div>
       </main>
     </Layout>
   );

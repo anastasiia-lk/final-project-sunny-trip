@@ -35,47 +35,65 @@ export default function maxDistance(props) {
     console.log(item);
   }
   return (
-    <Layout loggedIn={props.loggedIn}>
+    <Layout loggedIn={props.loggedIn} page="step2">
       <Head>
         <title>Maximum Distance</title>
       </Head>
       <main>
-        <input
-          type="text"
-          id="distance"
-          placeholder="Enter distance (km)"
-          // className="bottomText"
-          onChange={(event) => setDistance(event.currentTarget.value)}
-        />
-        <input
-          type="text"
-          id="population"
-          placeholder="Enter population"
-          // className="bottomText"
-          onChange={(event) => setPopulation(event.currentTarget.value)}
-        />
-        <br />
-        <button onClick={getCities}>Get Cities</button>
-        <ul className="tripWishListCities">
-          {cities.map((item) => (
-            <li>
-              {item.city}
-              {'             '}
+        <div className="location">
+          <input
+            className="indexLocationItem1"
+            type="text"
+            id="distance"
+            placeholder="Enter distance (km)"
+            // className="bottomText"
+            onChange={(event) => setDistance(event.currentTarget.value)}
+          />
+          <input
+            className="indexLocationItem1"
+            type="text"
+            id="population"
+            placeholder="Enter population"
+            // className="bottomText"
+            onChange={(event) => setPopulation(event.currentTarget.value)}
+          />
+          <br />
+          <button className="indexButton" onClick={getCities}>
+            Get Cities
+          </button>
+          <ul className="tripWishListCities">
+            {cities.map((item) => (
+              <li>
+                {item.city}
+                {'             '}
 
-              <button className="checkedCity" onClick={getCheckedCity(item)}>
-                Check
-              </button>
-              {/* <input
+                <button className="checkedCity" onClick={getCheckedCity(item)}>
+                  Check
+                </button>
+                {/* <input
                 type="checkbox"
                 onChange={(event) => checkedCity(item)}
               ></input> */}
-            </li>
-          ))}
-          {/* (
+              </li>
+            ))}
+            {/* (
             <li>{item.city}</li>
           ) */}
-          {/* <li>{cities?.[0]?.city}</li> */}
-        </ul>
+            {/* <li>{cities?.[0]?.city}</li> */}
+          </ul>
+          <div className="locationButtonBox">
+            <Link href="/tripDate">
+              <a>
+                <button className="locationButton">Back</button>
+              </a>
+            </Link>
+            <Link href="/weatherForecast">
+              <a>
+                <button className="locationButton">Next</button>
+              </a>
+            </Link>
+          </div>
+        </div>
       </main>
     </Layout>
   );

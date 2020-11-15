@@ -26,7 +26,7 @@ export default function Layout(props) {
         {/* 'https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350' */}
         {props.children}
       </main>
-      <Footer />
+      <Footer page={props.page} />
     </>
   );
 }

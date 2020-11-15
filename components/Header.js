@@ -38,38 +38,11 @@ export default function Header(props) {
         </div>
       </div>
       <div className="container">
-        {/* {props.page === 'step1' ? (
-          <ul className="progressbar">
-            <li class="active">Starting point</li>
-            <li>Trip date</li>
-            <li>Maximum distance</li>
-            <li>Weather forecast</li>
-          </ul>
-        ) : (
-          ''
-        )}
-      </div>
-      <div className="container">
-        {props.page === 'step2' ? (
-          <ul className="progressbar">
-            <li class="active">Starting point</li>
-            <li class="active">Trip date</li>
-            <li>Maximum distance</li>
-            <li>Weather forecast</li>
-          </ul>
-        ) : (
-          <ul className="progressbar">
-            <li>Starting point</li>
-            <li>Trip date</li>
-            <li>Maximum distance</li>
-            <li>Weather forecast</li>
-          </ul>
-        )} */}
         {(() => {
           if (props.page === 'step0')
             return (
               <ul className="progressbar">
-                <li>Starting point</li>
+                <li class="active">Starting point</li>
                 <li>Trip date</li>
                 <li>Maximum distance</li>
                 <li>Weather forecast</li>
@@ -79,7 +52,7 @@ export default function Header(props) {
             return (
               <ul className="progressbar">
                 <li class="active">Starting point</li>
-                <li>Trip date</li>
+                <li class="active">Trip date</li>
                 <li>Maximum distance</li>
                 <li>Weather forecast</li>
               </ul>
@@ -89,7 +62,7 @@ export default function Header(props) {
               <ul className="progressbar">
                 <li class="active">Starting point</li>
                 <li class="active">Trip date</li>
-                <li>Maximum distance</li>
+                <li class="active">Maximum distance</li>
                 <li>Weather forecast</li>
               </ul>
             );
@@ -99,7 +72,7 @@ export default function Header(props) {
                 <li class="active">Starting point</li>
                 <li class="active">Trip date</li>
                 <li class="active">Maximum distance</li>
-                <li>Weather forecast</li>
+                <li class="active">Weather forecast</li>
               </ul>
             );
         })()}
