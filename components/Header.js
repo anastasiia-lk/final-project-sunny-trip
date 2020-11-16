@@ -39,7 +39,7 @@ export default function Header(props) {
       </div>
       <div className="container">
         {(() => {
-          if (props.page === 'step0')
+          if (props.step === 1)
             return (
               <ul className="progressbar">
                 <li class="active">Starting point</li>
@@ -48,7 +48,7 @@ export default function Header(props) {
                 <li>Weather forecast</li>
               </ul>
             );
-          if (props.page === 'step1')
+          if (props.step === 2)
             return (
               <ul className="progressbar">
                 <li class="active">Starting point</li>
@@ -57,7 +57,7 @@ export default function Header(props) {
                 <li>Weather forecast</li>
               </ul>
             );
-          if (props.page === 'step2')
+          if (props.step === 3)
             return (
               <ul className="progressbar">
                 <li class="active">Starting point</li>
@@ -66,7 +66,7 @@ export default function Header(props) {
                 <li>Weather forecast</li>
               </ul>
             );
-          if (props.page === 'step3')
+          if (props.step === 4)
             return (
               <ul className="progressbar">
                 <li class="active">Starting point</li>

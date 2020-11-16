@@ -9,7 +9,7 @@ export default function Layout(props) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header loggedIn={props.loggedIn} page={props.page} />
+      <Header loggedIn={props.loggedIn} step={props.step} />
       <main
         style={
           props.page === 'home'
@@ -26,7 +26,7 @@ export default function Layout(props) {
         {/* 'https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350' */}
         {props.children}
       </main>
-      <Footer page={props.page} />
+      <Footer />
     </>
   );
 }

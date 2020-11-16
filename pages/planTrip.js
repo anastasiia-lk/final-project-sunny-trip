@@ -12,14 +12,31 @@ export default function PlanTrip(props) {
         <title>Plan Trip</title>
       </Head>
       <main>
-        <div className="planTrip">
-          <button className="planTripItem1">Starting point</button>
-          <button className="planTripItem2">Trip date</button>
-          <button className="planTripItem3">Maximum distance</button>
-          <button className="planTripItem4">Weather forecast</button>
-        </div>
-        <div className="planTripButton">
-          <button>Plan My Trip</button>
+        <div className="location">
+          <div className="dateText">Plan your trip with 4 short steps:</div>
+          <div className="planTrip">
+            <button className="planTripItem1">
+              Step 1:<br></br>
+              <br></br> Starting point
+            </button>
+            <button className="planTripItem2">
+              Step 2:<br></br>
+              <br></br> Trip date
+            </button>
+            <button className="planTripItem3">
+              Step 3:<br></br>
+              <br></br> Maximum distance
+            </button>
+            <button className="planTripItem4">
+              Step 4:<br></br>
+              <br></br> Weather forecast
+            </button>
+          </div>
+          <Link href="/startingPoint">
+            <a>
+              <button className="indexButton">Plan My Trip</button>
+            </a>
+          </Link>
         </div>
       </main>
     </Layout>

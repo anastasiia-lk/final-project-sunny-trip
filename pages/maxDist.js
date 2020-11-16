@@ -32,7 +32,8 @@ export default function maxDistance(props) {
   }
   function getCheckedCity(item) {
     // setCheckedCity(item);
-    console.log(item);
+    // console.log(item);
+    console.log('props.latcur', props.latcur);
   }
   return (
     <Layout loggedIn={props.loggedIn} page="step2">
@@ -92,6 +93,9 @@ export default function maxDistance(props) {
                 <button className="locationButton">Next</button>
               </a>
             </Link>
+            <button className="locationButton" onClick={getCheckedCity}>
+              Check
+            </button>
           </div>
         </div>
       </main>
