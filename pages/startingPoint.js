@@ -18,6 +18,7 @@ const AnyReactComponent = ({ text }) => (
 );
 
 export default function startingPoint(props) {
+  console.log(props);
   // States for rendering Plan Trip steps pages
   const [step, setStep] = useState(1);
   //States for Google Maps&Current Location
@@ -26,14 +27,17 @@ export default function startingPoint(props) {
   const [lngcur, setlngcur] = useState(30.33);
   //State for Trip Date
   const [startDate, setStartDate] = useState(new Date());
+  const [numberStartDate, setNumberStartDate] = useState(0);
   //States for the nearby cities
   const [distance, setDistance] = useState(0);
   const [population, setPopulation] = useState(0);
   const [cities, setCities] = useState([]);
+  const [selectedCity, setSelectedCity] = useState({});
   //States and key for the weather forecast
-  const key_weather_api = process.env.REACT_APP_OPENWEATHER_APP_API_KEY;
+  // const key_cities_api = process.env.REACT_APP_CITIES_APP_API_KEY;
   const [weather, setWeather] = useState('');
   const [tripDate, setTripDate] = useState('');
+  const [checkDate, setCheckDate] = useState('');
   const [icon, setIcon] = useState(
     'http://openweathermap.org/img/wn/10d@2x.png',
   );
@@ -44,31 +48,23 @@ export default function startingPoint(props) {
       (position) => {
         setlatcur(position.coords.latitude);
         setlngcur(position.coords.longitude);
-        console.log(position.coords.latitude);
-        console.log(position.coords.longitude);
-        // console.log({
-        //   latitude: position.coords.latitude,
-        //   longitude: position.coords.longitude,
-        // });
-        // const newLatcur = position.coords.latitude;
-        // const newLngcur = position.coords.longitude;
-        // setlatcur(newLatcur);
-        // console.log(latcur);
-        // setlngcur(newLngcur);
-        // console.log(lngcur);
+        // console.log(position.coords.latitude);
+        // console.log(position.coords.longitude);
       },
       (err) => console.log(err),
     );
   }
 
   //Get nearby cities
+  // `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/48.2030964+16.3851084/
   async function getCities() {
+    console.log(props);
     const getPromiseCities = await fetch(
-      `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/48.2030964+16.3851084/nearbyCities?radius=${distance}&limit=10&minPopulation=${population}`,
+      `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/${latcur}+${lngcur}/nearbyCities?radius=${distance}&limit=10&minPopulation=${population}`,
       {
         method: 'GET',
         headers: {
-          'x-rapidapi-key': 'key',
+          'x-rapidapi-key': `${props.key_cities_api}`,
           'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
         },
       },
@@ -82,16 +78,28 @@ export default function startingPoint(props) {
     setCities(newCityList);
   }
 
-  function getCheckedCity(item) {
+  //
+  function getCheckedCity() {
     // setCheckedCity(item);
     // console.log(item);
-    console.log('props.latcur', props.latcur);
+    console.log('selectedCity', selectedCity);
+    console.log('selectedCity city', selectedCity.city);
+    console.log('selectedCity city', selectedCity.country);
+    console.log('selectedCity city', selectedCity.latitude);
+    console.log('selectedCity city', selectedCity.longitude);
+  }
+
+  function check() {
+    // const string = parseInt(startDate.match(/\d+/));
+    // setNumberStartDate(string);
+    // console.log(numberStartDate);
+    console.log(startDate);
   }
 
   //Get weather forecast
   function getWeather() {
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=48.2030964&lon=16.3851084&exclude=current,minutely,hourly,alerts&units=metric&appid=6ba39f42dec962922960a70c23f20cd4`,
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${selectedCity.latitude}&lon=${selectedCity.longitude}&exclude=current,minutely,hourly,alerts&units=metric&appid=${props.key_weather_api}`,
     )
       .then((response) => response.json())
       .then((res) => {
@@ -108,9 +116,13 @@ export default function startingPoint(props) {
         console.log(JSON.stringify(unixTimestamp));
         const dateObj = new Date(unixTimestamp * 1000);
         const utcString = dateObj.toUTCString();
-        setTripDate(utcString);
+        // const string = parseInt(utcString.match(/\d+/));
+        // const string = parseInt(startDate.match(/\d+/));
+        setCheckDate(utcString);
         console.log(utcString);
+        // console.log('string', string);
       });
+    console.log();
   }
   return (
     <div>
@@ -184,6 +196,9 @@ export default function startingPoint(props) {
                       >
                         Next
                       </button>
+                      <button className="locationButton" onClick={check}>
+                        Check
+                      </button>
                     </div>
                   </div>
                 </main>
@@ -229,16 +244,17 @@ export default function startingPoint(props) {
                           {item.city}
                           {'             '}
 
-                          <button
+                          {/* <button
                             className="checkedCity"
-                            onClick={getCheckedCity(item)}
+                            onClick={() => setSelectedCity(item)}
+                            // onClick={getCheckedCity(item)}
                           >
                             Check
-                          </button>
-                          {/* <input
+                          </button> */}
+                          <input
                             type="checkbox"
-                            onChange={(event) => checkedCity(item)}
-                          ></input> */}
+                            onChange={(event) => setSelectedCity(item)}
+                          ></input>
                         </li>
                       ))}
                       {/* (
@@ -285,7 +301,10 @@ export default function startingPoint(props) {
                     {/* <div className="tripWishList"> */}
                     {/* <div className="dateText">Sunny weather forecast</div> */}
                     {/* </div> */}
-                    <button onClick={getWeather} className="indexButton">
+                    <button
+                      onClick={getWeather(startDate)}
+                      className="indexButton"
+                    >
                       Get Weather
                     </button>
                     <ul className="tripWishListCities">
@@ -301,6 +320,13 @@ export default function startingPoint(props) {
                         {weather?.daily?.[6]?.weather?.[0]?.main}//
                         {weather?.daily?.[6]?.weather?.[0]?.description}//
                         <img src={icon} alt="weather" />
+                        //
+                        {weather?.lat}//
+                        {weather?.lon}//
+                        {selectedCity.city}//
+                        {selectedCity.country}//
+                        {selectedCity.latitude}//
+                        {selectedCity.longitude}//
                       </li>
                       {/* ))} */}
                       {/* <li>{weather.daily[0]}</li>
@@ -334,9 +360,15 @@ export default function startingPoint(props) {
 
 export async function getServerSideProps(context) {
   const { session: token } = nextCookies(context);
+
+  const key_cities_api = process.env.REACT_APP_CITIES_APP_API_KEY;
+  const key_weather_api = process.env.REACT_APP_OPENWEATHER_APP_API_KEY;
+  console.log(key_cities_api, 'key');
   return {
     props: {
       loggedIn: await isSessionTokenValid(token),
+      key_cities_api: key_cities_api,
+      key_weather_api: key_weather_api,
     },
   };
 }
