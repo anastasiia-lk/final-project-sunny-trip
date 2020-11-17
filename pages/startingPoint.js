@@ -448,15 +448,9 @@ export default function startingPoint(props) {
 
 export async function getServerSideProps(context) {
   const { session: token } = nextCookies(context);
-
-  const key_cities_api = process.env.REACT_APP_CITIES_APP_API_KEY;
-  const key_weather_api = process.env.REACT_APP_OPENWEATHER_APP_API_KEY;
-  console.log(key_cities_api, 'key');
   return {
     props: {
       loggedIn: await isSessionTokenValid(token),
-      key_cities_api: key_cities_api,
-      key_weather_api: key_weather_api,
     },
   };
 }
