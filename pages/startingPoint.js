@@ -244,17 +244,17 @@ export default function startingPoint(props) {
                           {item.city}
                           {'             '}
 
-                          {/* <button
+                          <button
                             className="checkedCity"
                             onClick={() => setSelectedCity(item)}
                             // onClick={getCheckedCity(item)}
                           >
                             Check
-                          </button> */}
-                          <input
+                          </button>
+                          {/* <input
                             type="checkbox"
                             onChange={(event) => setSelectedCity(item)}
-                          ></input>
+                          ></input> */}
                         </li>
                       ))}
                       {/* (
@@ -302,7 +302,7 @@ export default function startingPoint(props) {
                     {/* <div className="dateText">Sunny weather forecast</div> */}
                     {/* </div> */}
                     <button
-                      onClick={getWeather(startDate)}
+                      onClick={() => getWeather(startDate)}
                       className="indexButton"
                     >
                       Get Weather
