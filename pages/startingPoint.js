@@ -20,8 +20,10 @@ const AnyReactComponent = ({ text }) => (
 );
 
 export default function startingPoint(props) {
-  const [date, setDate] = useState('');
+  const [dateForecast, setDateForecast] = useState([]);
+
   const [lt, setLt] = useState(0);
+  const [ln, setLn] = useState(0);
   const [lat, setLat] = useState(59.95);
   const [lon, setLon] = useState(30.33);
   const router = useRouter();
@@ -42,7 +44,7 @@ export default function startingPoint(props) {
   const [selectedCity, setSelectedCity] = useState({});
   //States and key for the weather forecast
   // const key_cities_api = process.env.REACT_APP_CITIES_APP_API_KEY;
-  const [weather, setWeather] = useState('');
+  // const [weather, setWeather] = useState('');
   const [tripDate, setTripDate] = useState('');
   const [checkDate, setCheckDate] = useState('');
   const [icon, setIcon] = useState(
@@ -90,7 +92,7 @@ export default function startingPoint(props) {
     // setCheckedCity(item);
     // console.log(item);
     // setSelectedCity(item);
-    setStep(4);
+    setStep(3);
     setSelectedCity(item);
     setLat(item.latitude);
     setLon(item.longitude);
@@ -198,47 +200,6 @@ export default function startingPoint(props) {
             <div>
               <Layout loggedIn={props.loggedIn} step={step}>
                 <Head>
-                  <title>Trip Date</title>
-                </Head>
-                <main>
-                  <div className="location">
-                    <div className="dateText">Select Trip Date</div>
-                    <DatePicker
-                      selected={startDate}
-                      onChange={(date) => setStartDate(date)}
-                    >
-                      <div style={{ color: 'red' }}>
-                        Don't forget to check the weather!
-                      </div>
-                    </DatePicker>
-                    <div className="locationButtonBox">
-                      <button
-                        className="locationButton"
-                        onClick={() => setStep(1)}
-                      >
-                        Back
-                      </button>
-
-                      <button
-                        className="locationButton"
-                        onClick={() => setStep(3)}
-                      >
-                        Next
-                      </button>
-                      <button className="locationButton" onClick={check}>
-                        Check
-                      </button>
-                    </div>
-                  </div>
-                </main>
-              </Layout>
-            </div>
-          );
-        if (step === 3)
-          return (
-            <div>
-              <Layout loggedIn={props.loggedIn} step={step}>
-                <Head>
                   <title>Maximum Distance</title>
                 </Head>
                 <main>
@@ -302,14 +263,14 @@ export default function startingPoint(props) {
                     <div className="locationButtonBox">
                       <button
                         className="locationButton"
-                        onClick={() => setStep(2)}
+                        onClick={() => setStep(1)}
                       >
                         Back
                       </button>
 
                       <button
                         className="locationButton"
-                        onClick={() => setStep(4)}
+                        onClick={() => setStep(3)}
                       >
                         Next
                       </button>
@@ -328,7 +289,7 @@ export default function startingPoint(props) {
               </Layout>
             </div>
           );
-        if (step === 4)
+        if (step === 3)
           return (
             <div>
               <Layout loggedIn={props.loggedIn} step={step}>
@@ -340,6 +301,12 @@ export default function startingPoint(props) {
                     {/* <div className="tripWishList"> */}
                     {/* <div className="dateText">Sunny weather forecast</div> */}
                     {/* </div> */}
+                    <div className="dateText">
+                      One week daily weather forecast
+                    </div>
+                    <div className="dateText">
+                      {selectedCity.city}, {selectedCity.country}
+                    </div>
                     <button
                       // onClick={() => getWeather()}
                       onClick={async (e) => {
@@ -352,22 +319,40 @@ export default function startingPoint(props) {
                           },
                           body: JSON.stringify({ lat, lon }),
                         });
-                        const { lt, ln, date, temp } = await response.json();
-                        setDate(date);
+                        const { lt, ln, dateForecast } = await response.json();
+                        // console.log(forecast);
+                        // const unixTimestamp = res.daily[6].dt;
+                        // const dateObj = new Date(unixTimestamp * 1000);
+                        // const utcString = dateObj.toUTCString();
+                        setDateForecast(dateForecast);
                         setLt(lt);
+                        setLn(ln);
                       }}
                       className="indexButton"
                     >
-                      Get Weather
+                      Get Forecast
                     </button>
+                    <br />
+                    <br />
                     <ul className="tripWishListCities">
-                      {/* {weather.map((item) => ( */}
-                      <li>
-                        {date}//
-                        {lt}//
-                        {weather?.daily?.[6]?.dt}//
-                        {tripDate}//
-                        {weather?.daily?.[6]?.temp?.day}//
+                      {dateForecast.map((item) => (
+                        <li className="liStyle">
+                          {/* {lt}//
+                          {ln}// */}
+                          {'📅'}
+                          {'  '}
+                          {item.date} {'🌡'}
+                          {'  '}
+                          {item.temp}°C {'📝'}
+                          {'  '}
+                          {item.long}
+                          {'  '}
+                          <img src={item.icon} alt="weather" />
+                          {/* {lt}//
+                        {ln}// */}
+                          {/* {updatedWeather?.daily?.[6]?.dt}//
+                        {tripDate}// */}
+                          {/* {weather?.daily?.[6]?.temp?.day}//
                         {weather?.daily?.[6]?.pressure} hPa//
                         {weather?.daily?.[6]?.humidity} %//
                         {weather?.daily?.[6]?.wind_speed} metre/sec//
@@ -377,26 +362,30 @@ export default function startingPoint(props) {
                         <img src={icon} alt="weather" />
                         //
                         {weather?.lat}//
-                        {weather?.lon}//
-                        {selectedCity.city}//
-                        {selectedCity.country}//
-                        {selectedCity.latitude}//
-                        {selectedCity.longitude}//
-                      </li>
-                      {/* ))} */}
-                      {/* <li>{weather.daily[0]}</li>
+                        {weather?.lon}// */}
+                          {/* {selectedCity.city}//
+                          {selectedCity.country}//
+                          {selectedCity.latitude}//
+                          {selectedCity.longitude}// */}
+                          <br />
+                          <br />
+                          <br />
+                        </li>
+                      ))}
+                      {/* ))
+                       <li>{weather.daily[0]}</li>
                 <li>{weather.daily[1]}</li>
                 <li>{weather.daily[2]}</li>
                 <li>{weather.daily[3]}</li>
                 <li>{weather.daily[4]}</li>
                 <li>{weather.daily[5]}</li>
                 <li>{weather.daily[6]}</li>
-                <li>{weather.daily[7]}</li> */}
+                <li>{weather.daily[7]}</li>  */}
                     </ul>
                     <div className="locationButtonBox">
                       <button
                         className="locationButton"
-                        onClick={() => setStep(3)}
+                        onClick={() => setStep(2)}
                       >
                         Back
                       </button>

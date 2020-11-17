@@ -356,10 +356,9 @@ button:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #fdfa66;
   font-weight: lighter;
   font-size: 24px;
-  color: #e74645;
+  color: #444646;
 }
 
 .planTripItem1:hover {
@@ -585,4 +584,8 @@ body {
   font-weight: lighter;
   font-size: 36px;
   color: white;
+}
+
+.liStyle {
+  list-style-type: none;
 }

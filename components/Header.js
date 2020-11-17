@@ -43,7 +43,6 @@ export default function Header(props) {
             return (
               <ul className="progressbar">
                 <li class="active">Starting point</li>
-                <li>Trip date</li>
                 <li>Maximum distance</li>
                 <li>Weather forecast</li>
               </ul>
@@ -52,8 +51,7 @@ export default function Header(props) {
             return (
               <ul className="progressbar">
                 <li class="active">Starting point</li>
-                <li class="active">Trip date</li>
-                <li>Maximum distance</li>
+                <li class="active">Maximum distance</li>
                 <li>Weather forecast</li>
               </ul>
             );
@@ -61,16 +59,6 @@ export default function Header(props) {
             return (
               <ul className="progressbar">
                 <li class="active">Starting point</li>
-                <li class="active">Trip date</li>
-                <li class="active">Maximum distance</li>
-                <li>Weather forecast</li>
-              </ul>
-            );
-          if (props.step === 4)
-            return (
-              <ul className="progressbar">
-                <li class="active">Starting point</li>
-                <li class="active">Trip date</li>
                 <li class="active">Maximum distance</li>
                 <li class="active">Weather forecast</li>
               </ul>

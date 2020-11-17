@@ -7,6 +7,7 @@ import {
   getUserByUsername,
   insertSession,
 } from '../../util/database';
+import { Z_DATA_ERROR } from 'zlib';
 
 export default async function handler(
   request: NextApiRequest,
@@ -47,7 +48,20 @@ export default async function handler(
   response.send({
     lt: weather?.lat,
     ln: weather?.lon,
-    date: weather?.daily?.[6]?.dt,
-    temp: weather?.daily?.[6]?.temp?.day,
+    dateForecast: weather?.daily?.map((item) => {
+      const dateObj = new Date(item.dt * 1000);
+      const utcString = dateObj.toUTCString();
+      const tempCels = Math.round(item?.temp?.day);
+      const longText = item?.weather?.[0].description;
+      const iconIndex = item?.weather?.[0].icon;
+      const iconURL =
+        'http://openweathermap.org/img/wn/' + iconIndex + '@2x.png';
+      return {
+        date: utcString,
+        temp: tempCels,
+        long: longText,
+        icon: iconURL,
+      };
+    }),
   });
 }
