@@ -7,7 +7,9 @@ import Layout from '../components/Layout';
 import nextCookies from 'next-cookies';
 import { isSessionTokenValid } from '../util/auth';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+// import 'react-datepicker/dist/react-datepicker.css';
+// import Router from 'next/dist/next-server/lib/router/router';
+import { useRouter } from 'next/router';
 
 const AnyReactComponent = ({ text }) => (
   <div
@@ -18,6 +20,11 @@ const AnyReactComponent = ({ text }) => (
 );
 
 export default function startingPoint(props) {
+  const [date, setDate] = useState('');
+  const [lt, setLt] = useState(0);
+  const [lat, setLat] = useState(59.95);
+  const [lon, setLon] = useState(30.33);
+  const router = useRouter();
   console.log(props);
   // States for rendering Plan Trip steps pages
   const [step, setStep] = useState(1);
@@ -79,50 +86,72 @@ export default function startingPoint(props) {
   }
 
   //
-  function getCheckedCity() {
+  function getSelectedCity(item) {
     // setCheckedCity(item);
     // console.log(item);
-    console.log('selectedCity', selectedCity);
-    console.log('selectedCity city', selectedCity.city);
-    console.log('selectedCity city', selectedCity.country);
-    console.log('selectedCity city', selectedCity.latitude);
-    console.log('selectedCity city', selectedCity.longitude);
+    // setSelectedCity(item);
+    setStep(4);
+    setSelectedCity(item);
+    setLat(item.latitude);
+    setLon(item.longitude);
+    // console.log('selectedCity', selectedCity);
+    // console.log('selectedCity city', selectedCity.city);
+    // console.log('selectedCity city', selectedCity.country);
+    // console.log('selectedCity city', selectedCity.latitude);
+    // console.log('selectedCity city', selectedCity.longitude);
   }
 
   function check() {
     // const string = parseInt(startDate.match(/\d+/));
     // setNumberStartDate(string);
     // console.log(numberStartDate);
-    console.log(startDate);
+    // console.log(startDate);
+    console.log('selectedCity city', selectedCity.city);
+    console.log('selectedCity city', selectedCity.country);
+    console.log('selectedCity city', selectedCity.latitude);
+    console.log('selectedCity city', selectedCity.longitude);
   }
 
   //Get weather forecast
-  function getWeather() {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${selectedCity.latitude}&lon=${selectedCity.longitude}&exclude=current,minutely,hourly,alerts&units=metric&appid=${props.key_weather_api}`,
-    )
-      .then((response) => response.json())
-      .then((res) => {
-        setWeather(res);
-        console.log(JSON.stringify(res));
-        const test = JSON.stringify(res);
-        const newIcon =
-          'http://openweathermap.org/img/wn/' +
-          res.daily[6].weather[0].icon +
-          '@2x.png';
-        console.log(newIcon);
-        setIcon(newIcon);
-        const unixTimestamp = res.daily[6].dt;
-        console.log(JSON.stringify(unixTimestamp));
-        const dateObj = new Date(unixTimestamp * 1000);
-        const utcString = dateObj.toUTCString();
-        // const string = parseInt(utcString.match(/\d+/));
-        // const string = parseInt(startDate.match(/\d+/));
-        setCheckDate(utcString);
-        console.log(utcString);
-        // console.log('string', string);
-      });
-    console.log();
+  async function getWeather() {
+    // fetch(
+    //   `https://api.openweathermap.org/data/2.5/onecall?lat=${selectedCity.latitude}&lon=${selectedCity.longitude}&exclude=current,minutely,hourly,alerts&units=metric&appid=${props.key_weather_api}`,
+    // )
+    //   .then((response) => response.json())
+    //   .then((res) => {
+    //     setWeather(res);
+    //     console.log(JSON.stringify(res));
+    //     const test = JSON.stringify(res);
+    //     const newIcon =
+    //       'http://openweathermap.org/img/wn/' +
+    //       res.daily[6].weather[0].icon +
+    //       '@2x.png';
+    //     console.log(newIcon);
+    //     setIcon(newIcon);
+    //     const unixTimestamp = res.daily[6].dt;
+    //     console.log(JSON.stringify(unixTimestamp));
+    //     const dateObj = new Date(unixTimestamp * 1000);
+    //     const utcString = dateObj.toUTCString();
+    //     // const string = parseInt(utcString.match(/\d+/));
+    //     // const string = parseInt(startDate.match(/\d+/));
+    //     setCheckDate(utcString);
+    //     console.log(utcString);
+    //     // console.log('string', string);
+    //   });
+    // console.log();
+    // const lat = selectedCity.latitude;
+    // const lon = selectedCity.longitude;
+    // const lat = 59.95;
+    // const lon = 30.33;
+    const response = await fetch('/api/weather', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ lat, lon }),
+    });
+    const { date, temp } = await response.json();
+    console.log(date);
   }
   return (
     <div>
@@ -246,7 +275,15 @@ export default function startingPoint(props) {
 
                           <button
                             className="checkedCity"
-                            onClick={() => setSelectedCity(item)}
+                            onClick={() => {
+                              // e.preventDefault();
+                              // getSelectedCity();
+                              // getSelectedCity(item);
+                              // setSelectedCity(item);
+                              getSelectedCity(item);
+                              // setStep(4);
+                            }}
+                            // onClick={() => setSelectedCity(item)}
                             // onClick={getCheckedCity(item)}
                           >
                             Check
@@ -276,13 +313,15 @@ export default function startingPoint(props) {
                       >
                         Next
                       </button>
-
-                      <button
+                      <button className="locationButton" onClick={check}>
+                        Check
+                      </button>
+                      {/* <button
                         className="locationButton"
                         onClick={getCheckedCity}
                       >
                         Check
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </main>
@@ -302,7 +341,21 @@ export default function startingPoint(props) {
                     {/* <div className="dateText">Sunny weather forecast</div> */}
                     {/* </div> */}
                     <button
-                      onClick={() => getWeather(startDate)}
+                      // onClick={() => getWeather()}
+                      onClick={async (e) => {
+                        e.preventDefault();
+
+                        const response = await fetch('/api/weather', {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({ lat, lon }),
+                        });
+                        const { lt, ln, date, temp } = await response.json();
+                        setDate(date);
+                        setLt(lt);
+                      }}
                       className="indexButton"
                     >
                       Get Weather
@@ -310,6 +363,8 @@ export default function startingPoint(props) {
                     <ul className="tripWishListCities">
                       {/* {weather.map((item) => ( */}
                       <li>
+                        {date}//
+                        {lt}//
                         {weather?.daily?.[6]?.dt}//
                         {tripDate}//
                         {weather?.daily?.[6]?.temp?.day}//
@@ -347,6 +402,9 @@ export default function startingPoint(props) {
                       </button>
 
                       <button className="locationButton">Next</button>
+                      <button className="locationButton" onClick={check}>
+                        Check
+                      </button>
                     </div>
                   </div>
                 </main>

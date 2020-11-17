@@ -12,13 +12,16 @@ export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse,
 ) {
+  const { lat, lon } = request.body;
   // All info about the server
   const weatherResponse = await fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=59.95&lon=30.33&exclude=current,minutely,hourly,alerts&units=metric&appid=${process.env.REACT_APP_OPENWEATHER_APP_API_KEY}`,
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=${process.env.REACT_APP_OPENWEATHER_APP_API_KEY}`,
   );
 
   // Extract the body of the API
   const weather = await weatherResponse.json();
+
+  console.log(weatherResponse);
 
   //   .then((response) => response.json())
   //   .then((res) => {
@@ -42,6 +45,8 @@ export default async function handler(
   //     // console.log('string', string);
   //   });
   response.send({
+    lt: weather?.lat,
+    ln: weather?.lon,
     date: weather?.daily?.[6]?.dt,
     temp: weather?.daily?.[6]?.temp?.day,
   });
