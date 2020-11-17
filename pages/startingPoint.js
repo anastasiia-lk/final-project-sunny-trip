@@ -67,24 +67,24 @@ export default function startingPoint(props) {
   //Get nearby cities
   // `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/48.2030964+16.3851084/
   async function getCities() {
-    console.log(props);
-    const getPromiseCities = await fetch(
-      `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/${latcur}+${lngcur}/nearbyCities?radius=${distance}&limit=10&minPopulation=${population}`,
-      {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-key': `${props.key_cities_api}`,
-          'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
-        },
-      },
-    );
-    const getObject = await getPromiseCities.json();
-    console.log('getObject', getObject);
-    const draft = getObject.data;
-    console.log('draft', draft);
-    const newCityList = getObject.data.filter((item) => item.type === 'CITY');
-    console.log('newCityList', newCityList);
-    setCities(newCityList);
+    // console.log(props);
+    // const getPromiseCities = await fetch(
+    //   `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/${latcur}+${lngcur}/nearbyCities?radius=${distance}&limit=10&minPopulation=${population}`,
+    //   {
+    //     method: 'GET',
+    //     headers: {
+    //       'x-rapidapi-key': `${props.key_cities_api}`,
+    //       'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
+    //     },
+    //   },
+    // );
+    // const getObject = await getPromiseCities.json();
+    // console.log('getObject', getObject);
+    // const draft = getObject.data;
+    // console.log('draft', draft);
+    // const newCityList = getObject.data.filter((item) => item.type === 'CITY');
+    // console.log('newCityList', newCityList);
+    // setCities(newCityList);
   }
 
   //
@@ -225,7 +225,32 @@ export default function startingPoint(props) {
                       }
                     />
                     <br />
-                    <button className="indexButton" onClick={getCities}>
+                    <button
+                      className="indexButton"
+                      onClick={async (e) => {
+                        e.preventDefault();
+
+                        const response = await fetch('/api/cities', {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({
+                            latcur,
+                            lngcur,
+                            distance,
+                            population,
+                          }),
+                        });
+                        const { cities, nearbyCities } = await response.json();
+                        // console.log(forecast);
+                        // const unixTimestamp = res.daily[6].dt;
+                        // const dateObj = new Date(unixTimestamp * 1000);
+                        // const utcString = dateObj.toUTCString();
+                        setCities(nearbyCities);
+                      }}
+                      className="indexButton"
+                    >
                       Get Cities
                     </button>
                     <ul className="tripWishListCities">
