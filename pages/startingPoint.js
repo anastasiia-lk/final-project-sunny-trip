@@ -373,6 +373,22 @@ export default function startingPoint(props) {
                           {item.long}
                           {'  '}
                           <img src={item.icon} alt="weather" />
+                          {'  '}
+                          <button
+                            className="checkedWeather"
+                            onClick={() => {
+                              // e.preventDefault();
+                              // getSelectedCity();
+                              // getSelectedCity(item);
+                              // setSelectedCity(item);
+                              router.push('/profile');
+                              // setStep(4);
+                            }}
+                            // onClick={() => setSelectedCity(item)}
+                            // onClick={getCheckedCity(item)}
+                          >
+                            Add to wish list
+                          </button>
                           {/* {lt}//
                         {ln}// */}
                           {/* {updatedWeather?.daily?.[6]?.dt}//
