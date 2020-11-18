@@ -217,10 +217,15 @@ export async function addTrip(
         RETURNING *;
       `;
 
-  return (
-    newTrip.map((t) => camelcaseKeys(t))[0],
-    newWeather.map((w) => camelcaseKeys(w))[0],
-    newDate.map((d) => camelcaseKeys(d))[0],
-    newCity.map((c) => camelcaseKeys(c))[0],
-  )
+  const trip = await sql<Cities[]>`
+        INSERT INTO cities
+          (city, trips_id)
+        VALUES
+          (${city}, ${country}, ${newTrip[0].id} )
+        RETURNING *;
+      `;
+  const response = { city: newCity.city, temp: newTrip.temp };
+  return response;
+  // newTrip.map((t) => camelcaseKeys(t))[0],
+  // newCity.map((c) => camelcaseKeys(c))[0],
 }
