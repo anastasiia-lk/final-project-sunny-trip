@@ -1,7 +1,7 @@
 import postgres from 'postgres';
 import dotenv from 'dotenv';
 import camelcaseKeys from 'camelcase-keys';
-import { Session, User } from './types';
+import { Session, User, Trips, Weathers, Cities, Dates } from './types';
 // import extractHerokuDatabaseEnvVars from './extractHerokuDatabaseEnvVars';
 
 // extractHerokuDatabaseEnvVars();
@@ -174,4 +174,53 @@ export async function updateUserById(id: string, user: User) {
   }
 
   return users.map((u) => camelcaseKeys(u))[0];
+}
+
+export async function addTrip(
+  date: string,
+  temp: number,
+  long: string,
+  icon: string,
+  city: string,
+  country: string,
+  userId: number,
+) {
+  const newTrip = await sql<Trips[]>`
+          INSERT INTO trips
+            (name, user_id)
+          VALUES
+            (${name}, ${userId} )
+          RETURNING *;
+        `;
+
+  const newWeather = await sql<Weathers[]>`
+          INSERT INTO weathers
+            (temp, long, icon, trips_id)
+          VALUES
+            (${temp}, ${long}, ${icon}, ${newTrip[0].id} )
+          RETURNING *;
+        `;
+
+  const newDate = await sql<Dates[]>`
+          INSERT INTO dates
+            (date, trips_id)
+          VALUES
+            (${date}, ${newTrip[0].id} )
+          RETURNING *;
+        `;
+
+  const newCity = await sql<Cities[]>`
+        INSERT INTO cities
+          (city, trips_id)
+        VALUES
+          (${city}, ${country}, ${newTrip[0].id} )
+        RETURNING *;
+      `;
+
+  return (
+    newTrip.map((t) => camelcaseKeys(t))[0],
+    newWeather.map((w) => camelcaseKeys(w))[0],
+    newDate.map((d) => camelcaseKeys(d))[0],
+    newCity.map((c) => camelcaseKeys(c))[0],
+  )
 }

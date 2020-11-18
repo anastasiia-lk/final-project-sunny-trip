@@ -10,6 +10,7 @@ import DatePicker from 'react-datepicker';
 // import 'react-datepicker/dist/react-datepicker.css';
 // import Router from 'next/dist/next-server/lib/router/router';
 import { useRouter } from 'next/router';
+import { getUserBySessionToken } from '../util/database';
 
 const AnyReactComponent = ({ text }) => (
   <div
@@ -376,11 +377,23 @@ export default function startingPoint(props) {
                           {'  '}
                           <button
                             className="checkedWeather"
-                            onClick={() => {
-                              // e.preventDefault();
-                              // getSelectedCity();
-                              // getSelectedCity(item);
-                              // setSelectedCity(item);
+                            onClick={async (e) => {
+                              e.preventDefault();
+                              const response = await fetch('/api/wishList', {
+                                method: 'POST',
+                                headers: {
+                                  'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                  date: item.date,
+                                  temp: item.temp,
+                                  long: item.long,
+                                  icon: item.icon,
+                                  city: selectedCity.city,
+                                  country: selectedCity.country,
+                                  user: props.user,
+                                }),
+                              });
                               router.push('/profile');
                               // setStep(4);
                             }}
