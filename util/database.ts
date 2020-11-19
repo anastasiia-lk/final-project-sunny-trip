@@ -197,7 +197,7 @@ export async function addTrip(
         INSERT INTO cities
           (city, country)
         VALUES
-          (${city}, ${country}, ${newTrip[0].id} )
+          (${city}, ${country} )
         RETURNING *;
       `;
 
@@ -218,4 +218,34 @@ export async function addTrip(
     country: newCity[0].country,
   };
   return newWishListItem;
+}
+
+export async function getTripsByUserId(userId: number) {
+  const trips = await sql`
+    SELECT 
+    trips.date_trip,
+    trips.temp_forecast,
+    trips.forecast_trip,
+    trips.icon_forecast,
+    cities.city,
+    cities.country
+    FROM
+    trips,
+    cities,
+    trips_cities
+    WHERE
+    trips.user_id = ${userId} AND
+    trips_cities.trip_id = trips.id AND
+    trips_cities.city_id = cities.id;
+  `;
+  return trips.map((item) => {
+    return {
+      date: item.date_trip,
+      temp: item.temp_forecast,
+      long: item.forecast_trip,
+      icon: item.icon_forecast,
+      city: item.city,
+      country: item.country,
+    };
+  });
 }

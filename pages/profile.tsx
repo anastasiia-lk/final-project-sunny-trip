@@ -12,6 +12,7 @@ export default function Profile(props: { user: User; loggedIn: boolean }) {
 
   const [firstName, setFirstName] = useState(props.user?.firstName);
   const [lastName, setLastName] = useState(props.user?.lastName);
+  const [userWishList, setUserWishList] = useState([]);
   if (!props.user) {
     return (
       <Layout>
@@ -162,6 +163,33 @@ export default function Profile(props: { user: User; loggedIn: boolean }) {
         >
           delete user
         </button>
+        <br />
+        <br />
+        <button
+          className="checkedWeather"
+          onClick={async (e) => {
+            e.preventDefault();
+            const response = await fetch('/api/wishList');
+            const userTrips = await response.json();
+            setUserWishList(userTrips);
+            // setStep(4);
+          }}
+          // onClick={() => setSelectedCity(item)}
+          // onClick={getCheckedCity(item)}
+        >
+          Show Trip Wish List
+        </button>
+        <ul className="tripWishListCities">
+          {userWishList.map((item) => (
+            <li>
+              {item.date}
+              {item.temp}
+              {item.long}
+              {item.city}
+              {item.country}
+            </li>
+          ))}
+        </ul>
       </main>
     </Layout>
   );

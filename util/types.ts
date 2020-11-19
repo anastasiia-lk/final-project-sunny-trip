@@ -27,7 +27,14 @@ export type Cities = {
   city: string;
   country: string;
 };
+
 export type TripsCities = {
+  id: number;
+  trip_id: number;
+  city_id: number;
+};
+
+export type WishList = {
   id: number;
   trip_id: number;
   city_id: number;

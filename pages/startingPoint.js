@@ -1,8 +1,8 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
-import { GetServerSidePropsContext } from 'next';
+// import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Layout from '../components/Layout';
 import nextCookies from 'next-cookies';
 import { isSessionTokenValid } from '../util/auth';
@@ -10,7 +10,7 @@ import DatePicker from 'react-datepicker';
 // import 'react-datepicker/dist/react-datepicker.css';
 // import Router from 'next/dist/next-server/lib/router/router';
 import { useRouter } from 'next/router';
-import { getUserBySessionToken } from '../util/database';
+// import { getUserBySessionToken } from '../util/database';
 
 const AnyReactComponent = ({ text }) => (
   <div
