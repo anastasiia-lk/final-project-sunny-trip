@@ -1,7 +1,7 @@
 import postgres from 'postgres';
 import dotenv from 'dotenv';
 import camelcaseKeys from 'camelcase-keys';
-import { Session, User, Trips, Weathers, Cities, Dates } from './types';
+import { Session, User, Trips, Cities, TripsCities } from './types';
 // import extractHerokuDatabaseEnvVars from './extractHerokuDatabaseEnvVars';
 
 // extractHerokuDatabaseEnvVars();
@@ -187,45 +187,35 @@ export async function addTrip(
 ) {
   const newTrip = await sql<Trips[]>`
           INSERT INTO trips
-            (name, user_id)
+            (date_trip, temp_forecast, forecast_trip, icon_forecast, user_id)
           VALUES
-            (${name}, ${userId} )
-          RETURNING *;
-        `;
-
-  const newWeather = await sql<Weathers[]>`
-          INSERT INTO weathers
-            (temp, long, icon, trips_id)
-          VALUES
-            (${temp}, ${long}, ${icon}, ${newTrip[0].id} )
-          RETURNING *;
-        `;
-
-  const newDate = await sql<Dates[]>`
-          INSERT INTO dates
-            (date, trips_id)
-          VALUES
-            (${date}, ${newTrip[0].id} )
+            (${date}, ${temp}, ${long}, ${icon}, ${userId} )
           RETURNING *;
         `;
 
   const newCity = await sql<Cities[]>`
         INSERT INTO cities
-          (city, trips_id)
+          (city, country)
         VALUES
           (${city}, ${country}, ${newTrip[0].id} )
         RETURNING *;
       `;
 
-  const trip = await sql<Cities[]>`
-        INSERT INTO cities
-          (city, trips_id)
+  const newTripsCities = await sql<TripsCities[]>`
+        INSERT INTO trips_cities
+          (trip_id, city_id)
         VALUES
-          (${city}, ${country}, ${newTrip[0].id} )
+          (${newTrip[0].id}, ${newCity[0].id} )
         RETURNING *;
       `;
-  const response = { city: newCity.city, temp: newTrip.temp };
-  return response;
-  // newTrip.map((t) => camelcaseKeys(t))[0],
-  // newCity.map((c) => camelcaseKeys(c))[0],
+
+  const newWishListItem = {
+    date: newTrip[0].date_trip,
+    temp: newTrip[0].temp_forecast,
+    long: newTrip[0].forecast_trip,
+    icon: newTrip[0].icon_forecast,
+    city: newCity[0].city,
+    country: newCity[0].country,
+  };
+  return newWishListItem;
 }

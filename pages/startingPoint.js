@@ -391,7 +391,6 @@ export default function startingPoint(props) {
                                   icon: item.icon,
                                   city: selectedCity.city,
                                   country: selectedCity.country,
-                                  user: props.user,
                                 }),
                               });
                               router.push('/profile');

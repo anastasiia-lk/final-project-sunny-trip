@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { getUserBySessionToken, addTrip } from '../../util/database';
 import argon2 from 'argon2';
 import Tokens from 'csrf';
 import { getUserByUsername, registerUser } from '../../util/database';
