@@ -146,7 +146,23 @@ button:hover {
   position: absolute;
   justify-content: space-around;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.iconbar {
+  display: flex;
+  width: 40vw;
+  justify-content: space-between;
+}
+.text {
+  font-size: 60%;
+  font-weight: 600;
+  text-align: center;
+  line-height: 20px;
+  /* margin: 10px 0 0 0; */
+  display: flex;
+  width: 40vw;
+  justify-content: center;
 }
 
 .indexLocation {

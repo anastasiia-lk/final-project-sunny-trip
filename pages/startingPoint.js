@@ -256,9 +256,12 @@ export default function startingPoint(props) {
                     </button>
                     <ul className="tripWishListCities">
                       {cities.map((item) => (
-                        <li>
+                        <li className="liStyle">
+                          {'📍'}
                           {item.city}
-                          {'             '}
+                          {',         '}
+                          {item.country}
+                          {'              '}
 
                           <button
                             className="checkedCity"

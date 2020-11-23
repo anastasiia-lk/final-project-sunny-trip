@@ -13,22 +13,18 @@ export default function PlanTrip(props) {
       </Head>
       <main>
         <div className="location">
-          <div className="dateText">Plan your trip with 4 short steps:</div>
+          <div className="dateText">Plan your trip with 3 short steps:</div>
           <div className="planTrip">
             <button className="planTripItem1">
               Step 1:<br></br>
               <br></br> Starting point
             </button>
-            <button className="planTripItem2">
+            <button className="planTripItem4">
               Step 2:<br></br>
-              <br></br> Trip date
+              <br></br> Maximum distance
             </button>
             <button className="planTripItem3">
               Step 3:<br></br>
-              <br></br> Maximum distance
-            </button>
-            <button className="planTripItem4">
-              Step 4:<br></br>
               <br></br> Weather forecast
             </button>
           </div>
