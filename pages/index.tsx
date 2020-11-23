@@ -16,7 +16,9 @@ export default function Home(props: Props) {
       <div className="indexPic">
         <Link href="/planTrip">
           <a>
-            <button className="indexButton">Start</button>
+            <button className="indexButton" data-cy="index-button">
+              Start
+            </button>
           </a>
         </Link>
       </div>
