@@ -49,6 +49,7 @@ export default function Login(props: Props) {
               type="text"
               placeholder="Username"
               value={username}
+              data-cy="username"
               onChange={(e) => setUsername(e.currentTarget.value)}
             />
             <input
@@ -56,9 +57,12 @@ export default function Login(props: Props) {
               type="text"
               placeholder="Password"
               value={password}
+              data-cy="password"
               onChange={(e) => setPassword(e.currentTarget.value)}
             />
-            <button className="indexLocationItem3">Login</button>
+            <button className="indexLocationItem3" data-cy="login">
+              Login
+            </button>
           </form>
           <p style={{ color: 'red' }}>{errorMessage}</p>
           <Link href="/registration">

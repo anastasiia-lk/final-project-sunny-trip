@@ -1,7 +1,7 @@
 describe('Simple Website Navigation', () => {
   it('Index page button works', () => {
     // Navigate to the homepage
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
 
     // Test whether the title has been set correctly
     cy.title().should('eq', 'Plan Trip');
