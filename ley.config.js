@@ -1,4 +1,4 @@
-import setPostgresDefaultsOnHeroku from './setPostgresDefaultsOnHeroku.js';
+const setPostgresDefaultsOnHeroku = require('./util/extractHerokuDatabaseEnvVars');
 
 setPostgresDefaultsOnHeroku();
 

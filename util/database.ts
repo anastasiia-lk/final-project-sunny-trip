@@ -1,10 +1,10 @@
-import setPostgresDefaultsOnHeroku from './setPostgresDefaultsOnHeroku';
+import extractHerokuDatabaseEnvVars from './extractHerokuDatabaseEnvVars';
 import postgres from 'postgres';
 import dotenv from 'dotenv';
 import camelcaseKeys from 'camelcase-keys';
 import { Session, User, Trips, Cities, TripsCities } from './types';
 
-setPostgresDefaultsOnHeroku();
+extractHerokuDatabaseEnvVars();
 // import extractHerokuDatabaseEnvVars from './extractHerokuDatabaseEnvVars';
 
 // extractHerokuDatabaseEnvVars();
