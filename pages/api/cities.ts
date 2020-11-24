@@ -15,7 +15,9 @@ export default async function handler(
 ) {
   const { latcur, lngcur, distance, population } = request.body;
   const citiesResponse = await fetch(
-    `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/${latcur}+${lngcur}/nearbyCities?radius=${distance}&limit=10&minPopulation=${population}`,
+    `https://wft-geo-db.p.rapidapi.com/v1/geo/locations/${latcur}${
+      lngcur < 0 ? '' : '+'
+    }${lngcur}/nearbyCities?radius=${distance}&limit=10&minPopulation=${population}`,
     {
       method: 'GET',
       headers: {

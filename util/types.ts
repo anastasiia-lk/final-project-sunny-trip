@@ -1,9 +1,12 @@
 export type User = {
   id: number;
-  passwordHash: string;
   username: string;
   firstName: string;
   lastName: string;
+};
+
+export type UserWithPasswordHash = User & {
+  passwordHash: string;
 };
 
 export type Session = {

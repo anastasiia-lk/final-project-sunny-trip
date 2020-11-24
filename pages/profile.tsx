@@ -211,5 +211,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   // instead of two like done here
   const user = await getUserBySessionToken(token);
 
-  return { props: { user, loggedIn: await isSessionTokenValid(token) } };
+  return {
+    props: {
+      user,
+      // user: { id: user.id, firstName: user.firstName, lastName: user.lastName },
+      loggedIn: await isSessionTokenValid(token),
+    },
+  };
 }

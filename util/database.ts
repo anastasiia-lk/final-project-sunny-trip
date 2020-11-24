@@ -2,7 +2,14 @@ import extractHerokuDatabaseEnvVars from './extractHerokuDatabaseEnvVars';
 import postgres from 'postgres';
 import dotenv from 'dotenv';
 import camelcaseKeys from 'camelcase-keys';
-import { Session, User, Trips, Cities, TripsCities } from './types';
+import {
+  Session,
+  User,
+  Trips,
+  Cities,
+  TripsCities,
+  UserWithPasswordHash,
+} from './types';
 
 extractHerokuDatabaseEnvVars();
 // import extractHerokuDatabaseEnvVars from './extractHerokuDatabaseEnvVars';
@@ -40,7 +47,7 @@ export async function registerUser(username: string, passwordHash: string) {
 }
 
 export async function getUserByUsername(username: string) {
-  const users = await sql<User[]>`
+  const users = await sql<UserWithPasswordHash[]>`
           SELECT * FROM users WHERE username = ${username};
         `;
 
