@@ -6,7 +6,14 @@ export default function Footer(props) {
         <div>
           <Link href={'https://github.com/anastasiia-lk'}>
             <a>
-              <img src="github.png" alt="Github logo" width="50" height="50" />
+              <img
+                src="github.png"
+                alt="Github logo"
+                width="50"
+                height="50"
+                background="rgb(3,3,3)"
+                opacity="0.9"
+              />
             </a>
           </Link>
         </div>

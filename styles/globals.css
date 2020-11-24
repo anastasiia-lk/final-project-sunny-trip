@@ -119,6 +119,14 @@ button:hover {
   justify-content: space-between;
 }
 
+.headerPics img {
+  opacity: 0.5;
+}
+
+.headerPics img:hover {
+  opacity: 0.9;
+}
+
 .headerTitle {
   font-weight: lighter;
   font-size: 48px;
@@ -154,6 +162,15 @@ button:hover {
   width: 40vw;
   justify-content: space-between;
 }
+
+.iconbar img {
+  opacity: 0.5;
+}
+
+.iconbar img:hover {
+  opacity: 0.9;
+}
+
 .text {
   font-size: 60%;
   font-weight: 600;

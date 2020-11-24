@@ -2,6 +2,9 @@ import postgres from 'postgres';
 import dotenv from 'dotenv';
 import camelcaseKeys from 'camelcase-keys';
 import { Session, User, Trips, Cities, TripsCities } from './types';
+import setPostgresDefaultsOnHeroku from './setPostgresDefaultsOnHeroku.js';
+
+setPostgresDefaultsOnHeroku();
 // import extractHerokuDatabaseEnvVars from './extractHerokuDatabaseEnvVars';
 
 // extractHerokuDatabaseEnvVars();
