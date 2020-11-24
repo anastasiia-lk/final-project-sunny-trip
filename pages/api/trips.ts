@@ -36,8 +36,5 @@ export default async function handler(
     response.send({
       trip: newTrip,
     });
-  } else if (request.method === 'DELETE') {
-    const { date, city, country } = request.body;
-    const trip = await deleteTrip(date, city, country, user.id);
   }
 }
