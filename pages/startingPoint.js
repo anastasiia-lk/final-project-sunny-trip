@@ -382,7 +382,7 @@ export default function startingPoint(props) {
                             className="checkedWeather"
                             onClick={async (e) => {
                               e.preventDefault();
-                              const response = await fetch('/api/wishList', {
+                              const response = await fetch('/api/trips', {
                                 method: 'POST',
                                 headers: {
                                   'Content-Type': 'application/json',

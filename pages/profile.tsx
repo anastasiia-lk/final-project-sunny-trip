@@ -6,13 +6,21 @@ import Layout from '../components/Layout';
 import { getUserBySessionToken } from '../util/database';
 import { User } from '../util/types';
 import { useState } from 'react';
+import { Router } from 'next/router';
+import { useRouter } from 'next/router';
 
 export default function Profile(props: { user: User; loggedIn: boolean }) {
+  const router = useRouter();
   const [editingKey, setEditingKey] = useState<string | null>(null);
 
   const [firstName, setFirstName] = useState(props.user?.firstName);
   const [lastName, setLastName] = useState(props.user?.lastName);
   const [userWishList, setUserWishList] = useState([]);
+  // const [delTripId, setTripId] = useState('');
+  // const [delTripDate, setdelTripDate] = useState('');
+  // const [delTripCity, setdelTripCity] = useState('');
+  // const [delTripCountry, setdelTripCountry] = useState('');
+
   if (!props.user) {
     return (
       <Layout>
@@ -169,7 +177,7 @@ export default function Profile(props: { user: User; loggedIn: boolean }) {
           className="checkedWeather"
           onClick={async (e) => {
             e.preventDefault();
-            const response = await fetch('/api/wishList');
+            const response = await fetch('/api/trips');
             const userTrips = await response.json();
             setUserWishList(userTrips);
             // setStep(4);
@@ -187,9 +195,44 @@ export default function Profile(props: { user: User; loggedIn: boolean }) {
               {item.long}
               {item.city}
               {item.country}
+              <button
+                className="checkedCity"
+                onClick={async () => {
+                  const answer = window.confirm(
+                    `Really delete trip ${item.city}, ${item.country}?`,
+                  );
+
+                  if (answer === true) {
+                    await fetch(`/api/trips/${item.id}`, {
+                      method: 'DELETE',
+                    });
+                    const response = await fetch('/api/trips');
+                    const userTrips = await response.json();
+                    setUserWishList(userTrips);
+
+                    // This is just a fast way of refreshing the information
+                    //
+                    // A better version would be to save the props.user to a
+                    // separate state variable and then just set it here to null
+                    // window.location.reload();
+                  }
+                }}
+              >
+                Delete
+              </button>
             </li>
           ))}
         </ul>
+        <button
+          className="checkedWeather"
+          onClick={() => {
+            router.push('/startingPoint');
+          }}
+          // onClick={() => setSelectedCity(item)}
+          // onClick={getCheckedCity(item)}
+        >
+          Start new search
+        </button>
       </main>
     </Layout>
   );

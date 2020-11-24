@@ -3,6 +3,7 @@ import {
   getUserBySessionToken,
   addTrip,
   getTripsByUserId,
+  deleteTrip,
 } from '../../util/database';
 import argon2 from 'argon2';
 import Tokens from 'csrf';
@@ -35,5 +36,8 @@ export default async function handler(
     response.send({
       trip: newTrip,
     });
+  } else if (request.method === 'DELETE') {
+    const { date, city, country } = request.body;
+    const trip = await deleteTrip(date, city, country, user.id);
   }
 }

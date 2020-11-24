@@ -233,6 +233,7 @@ export async function addTrip(
 export async function getTripsByUserId(userId: number) {
   const trips = await sql`
     SELECT 
+    trips.id,
     trips.date_trip,
     trips.temp_forecast,
     trips.forecast_trip,
@@ -256,6 +257,23 @@ export async function getTripsByUserId(userId: number) {
       icon: item.icon_forecast,
       city: item.city,
       country: item.country,
+      id: item.id,
     };
   });
+}
+
+export async function deleteTrip(tripId: string, userId: string) {
+  // Return undefined if the id is not
+  // in the correct format
+  if (!/^\d+$/.test(userId)) return undefined;
+  if (!/^\d+$/.test(tripId)) return undefined;
+
+  const trips = await sql`
+    DELETE FROM trips
+      WHERE id = ${tripId} AND
+      user_id = ${userId}
+      RETURNING *
+  `;
+
+  return trips.map((u) => camelcaseKeys(u))[0];
 }

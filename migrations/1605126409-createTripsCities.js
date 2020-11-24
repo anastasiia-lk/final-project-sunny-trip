@@ -2,7 +2,7 @@ exports.up = async (sql) => {
   await sql`
     CREATE TABLE IF NOT EXISTS trips_cities (
       PRIMARY KEY (trip_id, city_id),
-      trip_id INT REFERENCES trips (id),
+      trip_id INT REFERENCES trips (id) ON DELETE CASCADE ON UPDATE CASCADE,
 			city_id INT REFERENCES cities (id)
     );
 	`;
