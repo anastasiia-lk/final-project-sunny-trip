@@ -167,14 +167,14 @@ export async function updateUserById(id: string, user: User) {
     `;
   }
 
-  if ('city' in user) {
-    users = await sql`
-      UPDATE users
-        SET city = ${user.city}
-        WHERE id = ${id}
-        RETURNING *;
-    `;
-  }
+  // if ('city' in user) {
+  //   users = await sql`
+  //     UPDATE users
+  //       SET city = ${user.city}
+  //       WHERE id = ${id}
+  //       RETURNING *;
+  //   `;
+  // }
 
   return users.map((u) => camelcaseKeys(u))[0];
 }
