@@ -13,9 +13,13 @@ export default function PlanTrip(props) {
       </Head>
       <main>
         <div className="location">
-          <div className="dateText">Plan your trip with 3 short steps:</div>
+          <div className="planTripTextSmall">Plan your trip with</div>
+          <div className="planTripTextBig">3 short steps:</div>
           <div className="planTrip">
-            <button className="planTripItem1" data-cy="plan-trip-step-1">
+            <img src="step1.jpg" alt="Linkedin logo" width="300" height="500" />
+            <img src="step2.jpg" alt="Linkedin logo" width="300" height="500" />
+            <img src="step3.jpg" alt="Linkedin logo" width="300" height="500" />
+            {/* <button className="planTripItem1" data-cy="plan-trip-step-1">
               Step 1:<br></br>
               <br></br> Starting point
             </button>
@@ -26,11 +30,11 @@ export default function PlanTrip(props) {
             <button className="planTripItem3" data-cy="plan-trip-step-3">
               Step 3:<br></br>
               <br></br> Weather forecast
-            </button>
+            </button> */}
           </div>
           <Link href="/startingPoint">
             <a>
-              <button className="indexButton">Plan My Trip</button>
+              <button className="planTripButton">I want to start</button>
             </a>
           </Link>
         </div>

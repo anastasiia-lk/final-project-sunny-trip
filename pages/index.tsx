@@ -4,10 +4,12 @@ import Link from 'next/link';
 import Layout from '../components/Layout';
 import nextCookies from 'next-cookies';
 import { isSessionTokenValid } from '../util/auth';
+import { useRouter } from 'next/router';
 
 type Props = { loggedIn: boolean };
 
 export default function Home(props: Props) {
+  const router = useRouter();
   return (
     <Layout loggedIn={props.loggedIn} page="home">
       <Head>
@@ -21,7 +23,14 @@ export default function Home(props: Props) {
         weather forecast
       </div>
       <div className="indexPic">
-        <button className="indexButton" data-cy="index-button">
+        <button
+          className="indexButton"
+          data-cy="index-button"
+          onClick={async (e) => {
+            e.preventDefault();
+            router.push('/planTrip');
+          }}
+        >
           I want to plan my trip
         </button>
       </div>

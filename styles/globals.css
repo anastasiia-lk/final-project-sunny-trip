@@ -5,7 +5,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
 html,
 body {
-  padding: 0;
+  width: 100%;
+  height: 100%;
   margin: 0;
   font-family: 'Courier New', Courier, monospace;
 }
@@ -94,6 +95,32 @@ button:hover {
   color: #ffffff;
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
+  cursor: pointer;
+  margin-top: 70px;
+}
+
+.planTripButton {
+  flex-wrap: wrap;
+  width: 200px;
+  height: 100px;
+  background: url('/buttonBack.jpg');
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.35rem;
+  font-weight: lighter;
+  font-size: 24px;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.planTripButton:hover {
+  /* background-color: #fb7756;
+  border: 10px solid #e74645; */
+  box-shadow: 15px 15px 40px 20px rgb(255, 216, 9);
+  /* border-radius: 0.35rem; */
 }
 
 .indexButton:hover {
@@ -184,10 +211,11 @@ button:hover {
   color: white;
   font-size: 80px;
   font-weight: 500;
-  margin-top: -50px;
-  margin-bottom: 90px;
+  /* margin-top: -50px; */
+  /* margin-bottom: 90px; */
   /* font-family: 'Homemade Apple', cursive; */
   font-family: 'Permanent Marker', cursive;
+  margin-top: 150px;
 }
 
 .indexFlexSmall {
@@ -195,8 +223,8 @@ button:hover {
   color: white;
   font-size: 28px;
   font-weight: 500;
-  margin-bottom: 50px;
-  margin-top: -50px;
+  /* margin-bottom: 50px; */
+  margin-top: 50px;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -205,8 +233,8 @@ button:hover {
   color: white;
   font-size: 170px;
   font-weight: 500;
-  margin-top: -50px;
-  margin-bottom: 90px;
+  margin-top: 10px;
+  /* margin-bottom: 90px; */
   /* font-family: 'Homemade Apple', cursive; */
   font-family: 'Permanent Marker', cursive;
 }
@@ -214,27 +242,34 @@ button:hover {
 .footerStyle {
   display: flex;
   width: 100%;
-  /* height: 158px; */
-  left: 0px;
-  bottom: -50px;
+  /* height: -100vh; */
+  /* padding-bottom: -1000vh; */
   position: absolute;
   justify-content: space-around;
   align-items: left;
   flex-direction: column;
   background: none;
-  margin-top: -200px;
+  /* margin-top: -200px; */
+  /* height: 158px;
+  padding-bottom: -158px; */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
 }
 
 .iconbar {
   display: flex;
-  width: 40vw;
+  width: 10vw;
+  /* height: 10vh; */
   justify-content: space-between;
 }
 
-.iconbar div {
-  margin: 10px 10px 100px 170px;
+.iconbar img {
+  margin-left: 200px;
+  padding: 0px 0px -100px 170px;
 }
-.iconbar div:hover {
+.iconbar img:hover {
   filter: drop-shadow(6px 6px 3px white);
 }
 
@@ -348,17 +383,27 @@ button:hover {
 }
 
 .planTrip {
-  margin-left: -150px;
+  margin-top: 0;
+  /* margin-left: -150px; */
   display: flex;
   flex-direction: row;
-  width: 1440px;
-  height: 707px;
-  justify-content: space-between;
+  /* width: 1440px; */
+  /* height: 707px; */
+  justify-content: center;
   align-content: center;
   align-items: center;
 }
 
-.planTripItem1 {
+.planTrip img {
+  /* margin-right: 150px; */
+  margin-top: 10px;
+  opacity: 0.8;
+  border-radius: 20%;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+/* .planTripItem1 {
   flex-wrap: nowrap;
   margin-top: 2rem;
   width: 278px;
@@ -390,7 +435,7 @@ button:hover {
   color: #e74645;
   background: #fdfa66;
   border: 10px solid #fdfa66;
-}
+} */
 .planTripItem4 {
   flex-wrap: nowrap;
   margin-top: 2rem;
@@ -403,15 +448,15 @@ button:hover {
   border: 10px solid #1ac0c6;
 }
 
-.planTripButton {
+/* .planTripButton {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.planTripButton button {
+/* .planTripButton button {
   flex-wrap: wrap;
-  width: 278px;
+  width: 138px;
   height: 78px;
   background: #e74645;
   border: 10px solid #e74645;
@@ -420,7 +465,7 @@ button:hover {
   font-weight: lighter;
   font-size: 24px;
   color: #ffffff;
-}
+} */
 
 .tripWishList {
   display: flex;
@@ -683,6 +728,13 @@ body {
   cursor: pointer;
 }
 
+.locationButton:hover {
+  /* background-color: #fb7756;
+  border: 10px solid #e74645; */
+  box-shadow: 15px 15px 100px 70px rgb(255, 216, 9);
+  /* border-radius: 0.35rem; */
+}
+
 .locationButtonBox {
   display: flex;
   flex-direction: row;
@@ -691,15 +743,43 @@ body {
   align-items: center;
 }
 
-.dateText {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background: #facd60;
-  font-weight: lighter;
-  font-size: 36px;
+.planTripTextSmall {
+  margin-top: 150px;
+  margin-bottom: 24px;
+  font-size: 30px;
   color: white;
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+}
+.planTripTextBig {
+  margin-top: -50px;
+  font-size: 80px;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
 }
 
 .liStyle {
   list-style-type: none;
+}
+
+/* .indexFlex {
+  display: flex;
+  color: white;
+  font-size: 80px;
+  font-weight: 500;
+  margin-top: 170px;
+  margin-bottom: 90px;
+  font-family: 'Homemade Apple', cursive;
+  font-family: 'Permanent Marker', cursive;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
 }
