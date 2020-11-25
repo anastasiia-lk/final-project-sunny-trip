@@ -6,14 +6,7 @@ export default function Footer(props) {
         <div>
           <Link href={'https://github.com/anastasiia-lk'}>
             <a>
-              <img
-                src="github.png"
-                alt="Github logo"
-                width="50"
-                height="50"
-                background="rgb(3,3,3)"
-                opacity="0.9"
-              />
+              <img src="github.png" alt="Github logo" width="50" height="50" />
             </a>
           </Link>
         </div>
@@ -45,12 +38,6 @@ export default function Footer(props) {
             </a>
           </Link>
         </div>
-      </div>
-      <div className="text">
-        <p>
-          Copyright 2020 <br />
-          All rights reserved. Powered by Anastasiia Duplishcheva
-        </p>
       </div>
     </footer>
   );

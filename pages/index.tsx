@@ -13,14 +13,17 @@ export default function Home(props: Props) {
       <Head>
         <title>Plan Trip</title>
       </Head>
+      <div className="indexFlex">Make your trip a</div>
+      <div className="indexFlexBig">Sunny Trip</div>
+      <div className="indexFlexSmall">
+        Plan you trip <br /> based on preferred
+        <br />
+        weather forecast
+      </div>
       <div className="indexPic">
-        <Link href="/planTrip">
-          <a>
-            <button className="indexButton" data-cy="index-button">
-              Start
-            </button>
-          </a>
-        </Link>
+        <button className="indexButton" data-cy="index-button">
+          I want to plan my trip
+        </button>
       </div>
     </Layout>
   );

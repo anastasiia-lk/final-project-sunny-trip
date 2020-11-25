@@ -6,36 +6,40 @@ export default function Header(props) {
     <header className="headerWrap">
       <div className="headerStyle">
         <div className="headerPicsBlock">
-          <Link href="/">
-            <a className="logo">
-              <img src="/logo.png" alt="Logo" />
-            </a>
-          </Link>
+          <img src="/logo.png" alt="Logo" />
         </div>
-        <div className="headerTitle">Make your trip Sunny Trip</div>
-        <div className="headerPicsBlock">
-          <Link href="/">
+        <Link href="/">
+          <a className="headerPics">Home</a>
+        </Link>
+        <Link href="/">
+          <a className="headerPics">About</a>
+        </Link>
+        <Link href="/">
+          <a className="headerPics">Contact</a>
+        </Link>
+        {/* <div className="headerPicsBlock"> */}
+        {/* <Link href="/">
             <a className="headerPics">
               <img src="/home.png" alt="Home page" />
               Home
             </a>
+          </Link> */}
+        {!loggedInPassed ? null : props.loggedIn ? (
+          <Link href="/logout">
+            <a className="headerPics">
+              {/* <img src="/logout.png" alt="Log out" /> */}
+              Log out
+            </a>
           </Link>
-          {!loggedInPassed ? null : props.loggedIn ? (
-            <Link href="/logout">
-              <a className="headerPics">
-                <img src="/logout.jpg" alt="Log out" />
-                Log out
-              </a>
-            </Link>
-          ) : (
-            <Link href="/login">
-              <a className="headerPics">
-                <img src="/login.png" alt="Log in" />
-                Log in
-              </a>
-            </Link>
-          )}
-        </div>
+        ) : (
+          <Link href="/login">
+            <a className="headerPics">
+              {/* <img src="/login.png" alt="Log in" /> */}
+              Log in
+            </a>
+          </Link>
+        )}
+        {/* </div> */}
       </div>
       <div className="container">
         {(() => {

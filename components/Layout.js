@@ -14,9 +14,9 @@ export default function Layout(props) {
         style={
           props.page === 'home'
             ? {
-                padding: 260,
-                backgroundImage: 'url(' + '/sunny-1.jpg' + ')',
-                backgroundPosition: 'center',
+                padding: 220,
+                backgroundImage: 'url(' + '/background.jpg' + ')',
+                backgroundPosition: 'right 35% bottom',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
               }
