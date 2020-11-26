@@ -295,7 +295,7 @@ button:hover {
 }
 
 .indexLocationItem1 {
-  margin-top: 3rem;
+  margin-top: 300px;
   width: 278px;
   height: 39px;
   border: 3px solid #e74645;
@@ -383,25 +383,33 @@ button:hover {
 }
 
 .planTrip {
-  margin-top: 0;
-  /* margin-left: -150px; */
+  /* margin-left: -100px; */
   display: flex;
-  flex-direction: row;
-  /* width: 1440px; */
-  /* height: 707px; */
+  flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-content: flex-end;
+  align-items: left;
+}
+
+.planTripImg {
+  margin-top: 100px;
+  margin-left: 300px;
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
   align-items: center;
 }
 
-.planTrip img {
-  /* margin-right: 150px; */
+/* .planTrip img {
+  margin-right: 150px;
   margin-top: 10px;
   opacity: 0.8;
   border-radius: 20%;
-  margin-right: 100px;
-  margin-left: 100px;
-}
+  margin-right: 20px;
+  margin-left: 20px;
+} */
 
 /* .planTripItem1 {
   flex-wrap: nowrap;
@@ -704,11 +712,21 @@ body {
   background-color: #1ac0c6;
 }
 
-.location {
+.planTripWrap {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
+  align-items: center;
+}
+
+.planTripLocation {
+  margin-top: 0;
+  margin-left: -400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-end;
   align-items: center;
 }
 
@@ -744,19 +762,19 @@ body {
 }
 
 .planTripTextSmall {
-  margin-top: 150px;
-  margin-bottom: 24px;
-  font-size: 30px;
+  /* margin-top: 150px;
+  margin-bottom: 24px; */
+  font-size: 80px;
   color: white;
   font-family: 'Permanent Marker', cursive;
-  text-align: center;
+  text-align: left;
 }
 .planTripTextBig {
   margin-top: -50px;
   font-size: 80px;
   color: white;
   font-family: 'Permanent Marker', cursive;
-  text-align: center;
+  text-align: left;
 }
 
 .liStyle {
@@ -782,4 +800,48 @@ body {
 .wrapper {
   position: relative;
   min-height: 100%;
+}
+
+.wrapImgPlanTrip {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.imagePlanTrip {
+  display: block;
+  width: 500;
+  height: 300;
+  border-radius: 10%;
+}
+
+.overlayImgPlanTrip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: rgb(146, 23, 41);
+  border-radius: 10%;
+}
+
+.wrapImgPlanTrip:hover .overlayImgPlanTrip {
+  opacity: 1;
+}
+
+.textOverlayPlanTrip {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
 }

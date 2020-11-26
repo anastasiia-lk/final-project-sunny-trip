@@ -12,13 +12,72 @@ export default function PlanTrip(props) {
         <title>Plan Trip</title>
       </Head>
       <main>
-        <div className="location">
-          <div className="planTripTextSmall">Plan your trip with</div>
-          <div className="planTripTextBig">3 short steps:</div>
+        <div className="planTripLocation">
           <div className="planTrip">
-            <img src="step1.jpg" alt="Linkedin logo" width="300" height="500" />
-            <img src="step2.jpg" alt="Linkedin logo" width="300" height="500" />
-            <img src="step3.jpg" alt="Linkedin logo" width="300" height="500" />
+            <div className="planTripTextSmall">How it works ?</div>
+            <div className="indexFlexSmall">
+              Plan your trip with 3 short steps. <br />
+              Meet the steps in the gallery <br />
+              on the right.
+            </div>
+            <Link href="/startingPoint">
+              <a>
+                <button className="indexButton">I want to start</button>
+              </a>
+            </Link>
+          </div>
+          <div className="planTripImg">
+            <div class="wrapImgPlanTrip">
+              <img
+                className="imagePlanTrip"
+                src="step1.jpg"
+                alt="Linkedin logo"
+                width="500"
+                height="300"
+              />
+              <div class="overlayImgPlanTrip">
+                <div class="textOverlayPlanTrip">
+                  Step 1<br /> <br />
+                  <br />
+                  Find your current location <br />
+                  📍
+                </div>
+              </div>
+            </div>
+            <div class="wrapImgPlanTrip">
+              <img
+                className="imagePlanTrip"
+                src="step2.jpg"
+                alt="Linkedin logo"
+                width="500"
+                height="300"
+              />
+              <div class="overlayImgPlanTrip">
+                <div class="textOverlayPlanTrip">
+                  Step 2<br /> <br />
+                  <br />
+                  Find nearby cities by distance and population 🚩
+                </div>
+              </div>
+            </div>
+            <div class="wrapImgPlanTrip">
+              <img
+                className="imagePlanTrip"
+                src="step3.jpg"
+                alt="Linkedin logo"
+                width="500"
+                height="300"
+              />
+              <div class="overlayImgPlanTrip">
+                <div class="textOverlayPlanTrip">
+                  Step 3<br /> <br />
+                  <br />
+                  Get a forecast in the selected city <br /> ☀️
+                </div>
+              </div>
+            </div>
+            {/* <img src="step2.jpg" alt="Linkedin logo" width="300" height="500" />
+            <img src="step3.jpg" alt="Linkedin logo" width="300" height="500" /> */}
             {/* <button className="planTripItem1" data-cy="plan-trip-step-1">
               Step 1:<br></br>
               <br></br> Starting point
@@ -32,11 +91,6 @@ export default function PlanTrip(props) {
               <br></br> Weather forecast
             </button> */}
           </div>
-          <Link href="/startingPoint">
-            <a>
-              <button className="planTripButton">I want to start</button>
-            </a>
-          </Link>
         </div>
       </main>
     </Layout>

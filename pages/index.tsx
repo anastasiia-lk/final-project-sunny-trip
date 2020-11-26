@@ -18,7 +18,7 @@ export default function Home(props: Props) {
       <div className="indexFlex">Make your trip a</div>
       <div className="indexFlexBig">Sunny Trip</div>
       <div className="indexFlexSmall">
-        Plan you trip <br /> based on preferred
+        Plan your trip <br /> based on preferred
         <br />
         weather forecast
       </div>
