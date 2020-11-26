@@ -28,7 +28,7 @@ export default function Home(props: Props) {
           data-cy="index-button"
           onClick={async (e) => {
             e.preventDefault();
-            router.push('/planTrip');
+            router.push('/startingPoint');
           }}
         >
           I want to plan my trip

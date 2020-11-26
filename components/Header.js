@@ -6,13 +6,17 @@ export default function Header(props) {
     <header className="headerWrap">
       <div className="headerStyle">
         <div className="headerPicsBlock">
-          <img src="/logo.png" alt="Logo" />
+          <Link href="/">
+            <a>
+              <img src="/logo.png" alt="Logo" />
+            </a>
+          </Link>
         </div>
         <Link href="/">
           <a className="headerPics">Home</a>
         </Link>
-        <Link href="/">
-          <a className="headerPics">About</a>
+        <Link href="/planTrip">
+          <a className="headerPics">How it works</a>
         </Link>
         <Link href="/">
           <a className="headerPics">Contact</a>

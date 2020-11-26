@@ -11,6 +11,7 @@ import DatePicker from 'react-datepicker';
 // import Router from 'next/dist/next-server/lib/router/router';
 import { useRouter } from 'next/router';
 // import { getUserBySessionToken } from '../util/database';
+import Link from 'next/link';
 
 const AnyReactComponent = ({ text }) => (
   <div
@@ -161,13 +162,31 @@ export default function startingPoint(props) {
       {(() => {
         if (step === 1)
           return (
-            <div>
-              <Layout loggedIn={props.loggedIn} step={step}>
-                <Head>
-                  <title>Starting Point</title>
-                </Head>
-                <div className="location">
-                  <div style={{ height: '50vh', width: '100%' }}>
+            <Layout loggedIn={props.loggedIn} step={step}>
+              <Head>
+                <title>Starting Point</title>
+              </Head>
+              <main>
+                <div className="step1Wrap">
+                  <div className="step1Block">
+                    <div className="planTripTextSmall">Step 1</div>
+                    <div className="indexFlexSmall">
+                      Click the button below <br />
+                      to get your <br />
+                      current location
+                    </div>
+                    <button className="indexButton" onClick={getLocation}>
+                      Get My Current Location
+                    </button>
+                    <button className="nextButton" onClick={() => setStep(2)}>
+                      Next step
+                    </button>
+                  </div>
+
+                  <div
+                    className="step1Img"
+                    // style={{ height: '50vh', width: '30%' }}
+                  >
                     <GoogleMapReact
                       bootstrapURLKeys={{ key: key_google_maps }}
                       defaultCenter={{
@@ -178,23 +197,23 @@ export default function startingPoint(props) {
                     >
                       <AnyReactComponent lat={latcur} lng={lngcur} text="📍" />
                     </GoogleMapReact>
-                    <div className="location">
-                      <button className="indexButton" onClick={getLocation}>
-                        Get My Current Location
+                    {/* <div className="location">
+                    <button className="indexButton" onClick={getLocation}>
+                      Get My Current Location
+                    </button>
+                    <div className="locationButtonBox">
+                      <button
+                        className="locationButton"
+                        onClick={() => setStep(2)}
+                      >
+                        Next
                       </button>
-                      <div className="locationButtonBox">
-                        <button
-                          className="locationButton"
-                          onClick={() => setStep(2)}
-                        >
-                          Next
-                        </button>
-                      </div>
                     </div>
+                  </div> */}
                   </div>
                 </div>
-              </Layout>
-            </div>
+              </main>
+            </Layout>
           );
         if (step === 2)
           return (
