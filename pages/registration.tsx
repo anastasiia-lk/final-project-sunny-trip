@@ -17,7 +17,15 @@ export default function Registration(props: { token: string }) {
       </Head>
       <main>
         <div className="loginWrap">
-          <div className="step2Block">
+          <div className="loginBlock">
+            <div className="loginTextSmall">Registration</div>
+            <div className="loginFlexSmall">
+              register and <br />
+              start to plan your trip
+              <br />
+            </div>
+          </div>
+          <div className="loginBlock">
             <form
               className="step2Block"
               onSubmit={async (e) => {
@@ -55,14 +63,8 @@ export default function Registration(props: { token: string }) {
                 }
               }}
             >
-              <div className="planTripTextSmall">Registration</div>
-              <div className="indexFlexSmall">
-                register and <br />
-                start to plan your trip
-                <br />
-              </div>
               <input
-                className="step2Input"
+                className="loginInput"
                 type="text"
                 placeholder="Enter username"
                 value={username}
@@ -70,7 +72,7 @@ export default function Registration(props: { token: string }) {
                 onFocus={(e) => (e.currentTarget.value = '')}
               />
               <input
-                className="step2Input"
+                className="loginInput"
                 type="password"
                 placeholder="Enter password"
                 value={password}

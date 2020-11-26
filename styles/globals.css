@@ -238,6 +238,19 @@ button:hover {
   margin-top: 25vh;
 }
 
+.loginFlexSmall {
+  display: small;
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 50rem;
+  /* margin-bottom: 50px; */
+  margin-top: 1vh;
+  font-family: 'Open Sans', sans-serif;
+  height: 2vh;
+  width: 25vw;
+  margin-top: 25vh;
+}
+
 .planTripText {
   display: small;
   color: white;
@@ -800,6 +813,20 @@ body {
   /* margin-bottom: 5vh; */
   margin-top: 10vh;
 }
+
+.loginTextSmall {
+  /* margin-top: 150px;
+  margin-bottom: 24px; */
+  font-size: 8rem;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  text-align: left;
+  height: 0vh;
+  /* margin-bottom: 5vh; */
+  margin-top: 5vh;
+  /* margin-left: -70vh; */
+}
+
 .planTripTextBig {
   margin-top: -50px;
   font-size: 80px;
@@ -938,7 +965,7 @@ body {
 
 .step2Wrap {
   margin-top: 0;
-  margin-left: -400px;
+  margin-left: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -946,20 +973,45 @@ body {
   align-items: center;
 }
 
-.step2Block {
+.loginBlock {
   /* margin-left: -100px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: flex-end;
   align-items: left;
-  margin-top: 150px;
+  margin-top: 10vh;
+  margin-left: 0vh;
+  margin-right: 40vh;
+}
+
+.loginBlock {
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  margin-top: 0;
 }
 
 .step2Input {
-  margin-top: 10px;
-  width: 400px;
-  height: 39px;
+  margin-top: 0;
+  width: 25vw;
+  height: 8vh;
+  border: 2px solid rgb(145, 22, 40);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-weight: lighter;
+  font-size: 24px;
+  color: rgb(145, 22, 40);
+  border-radius: 3%;
+}
+
+.loginInput {
+  margin-top: 3vh;
+  margin-bottom: 0vh;
+  width: 25vw;
+  height: 8vh;
   border: 2px solid rgb(145, 22, 40);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-weight: lighter;
@@ -1039,8 +1091,8 @@ body {
 }
 
 .loginWrap {
-  margin-top: 0;
-  margin-left: -1000px;
+  margin-top: 10vh;
+  margin-left: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1050,8 +1102,8 @@ body {
 
 .loginButton {
   flex-wrap: wrap;
-  width: 400px;
-  height: 80px;
+  width: 25vw;
+  height: 12vh;
   background: url('/buttonBack.jpg');
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -1062,7 +1114,8 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 5vh;
+  margin-bottom: -3vh;
 }
 
 .content {

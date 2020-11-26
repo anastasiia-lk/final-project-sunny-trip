@@ -22,9 +22,16 @@ export default function Login(props: Props) {
       <main>
         {/* <div className="indexLocation"> */}
         <div className="loginWrap">
-          <div className="step2Block">
+          <div className="loginBlock">
+            <div className="loginTextSmall">Login</div>
+            <div className="loginFlexSmall">
+              before you will start <br />
+              your journey
+              <br />
+            </div>
+          </div>
+          <div className="loginBlock">
             <form
-              className="step2Block"
               onSubmit={async (e) => {
                 e.preventDefault();
 
@@ -46,14 +53,8 @@ export default function Login(props: Props) {
                 }
               }}
             >
-              <div className="planTripTextSmall">Login</div>
-              <div className="indexFlexSmall">
-                before you will start <br />
-                your journey
-                <br />
-              </div>
               <input
-                className="step2Input"
+                className="loginInput"
                 type="text"
                 placeholder="Username"
                 value={username}
@@ -61,8 +62,9 @@ export default function Login(props: Props) {
                 onChange={(e) => setUsername(e.currentTarget.value)}
                 onFocus={(e) => (e.currentTarget.value = '')}
               />
+              <br />
               <input
-                className="step2Input"
+                className="loginInput"
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -90,16 +92,16 @@ export default function Login(props: Props) {
               data-cy="password"
               onChange={(e) => setPassword(e.currentTarget.value)}
             /> */}
+              <br />
               <button className="loginButton" data-cy="login">
                 Login
               </button>
             </form>
             <p style={{ color: 'red' }}>{errorMessage}</p>
-            <div className="step2WrapButtons">
-              <Link href="/registration">
-                <button className="loginButton">Registration</button>
-              </Link>
-            </div>
+
+            <Link href="/registration">
+              <button className="loginButton">Registration</button>
+            </Link>
           </div>
         </div>
       </main>
