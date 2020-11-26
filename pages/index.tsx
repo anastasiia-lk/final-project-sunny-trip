@@ -15,14 +15,14 @@ export default function Home(props: Props) {
       <Head>
         <title>Plan Trip</title>
       </Head>
-      <div className="indexFlex">Make your trip a</div>
-      <div className="indexFlexBig">Sunny Trip</div>
-      <div className="indexFlexSmall">
-        Plan your trip <br /> based on preferred
-        <br />
-        weather forecast
-      </div>
-      <div className="indexPic">
+      <main>
+        <div className="indexFlex">Make your trip a</div>
+        <div className="indexFlexBig">Sunny Trip</div>
+        <div className="indexFlexSmall">
+          Plan your trip <br /> based on preferred
+          <br />
+          weather forecast
+        </div>
         <button
           className="indexButton"
           data-cy="index-button"
@@ -33,7 +33,7 @@ export default function Home(props: Props) {
         >
           I want to plan my trip
         </button>
-      </div>
+      </main>
     </Layout>
   );
 }

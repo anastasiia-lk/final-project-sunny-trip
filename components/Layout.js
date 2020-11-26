@@ -11,10 +11,36 @@ export default function Layout(props) {
       </Head>
       <Header loggedIn={props.loggedIn} step={props.step} />
       <main
+        className="content"
         style={
-          props.page === 'home'
+          props.page !== 'home'
             ? {
-                // paddingTop: '10vh',
+                paddingTop: '10vh',
+                paddingLeft: '10vw',
+                backgroundImage: 'url(' + '/backgroundReg.jpg' + ')',
+                backgroundPosition: 'right 55% bottom',
+                // backgroundPosition: 'right 15% bottom 15%',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                height: '100vh',
+                overflowY: 'hidden',
+                paddingBottom: '0px',
+              }
+            : props.page === 'login'
+            ? {
+                paddingTop: '10vh',
+                paddingLeft: '10vw',
+                backgroundImage: 'url(' + '/loginBack.jpg' + ')',
+                backgroundPosition: 'right 55% bottom',
+                // backgroundPosition: 'right 15% bottom 15%',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                height: '100vh',
+                overflowY: 'hidden',
+                paddingBottom: '0px',
+              }
+            : {
+                paddingTop: '10vh',
                 paddingLeft: '10vw',
                 backgroundImage: 'url(' + '/background.jpg' + ')',
                 backgroundPosition: 'right 55% bottom',
@@ -25,15 +51,29 @@ export default function Layout(props) {
                 overflowY: 'hidden',
                 paddingBottom: '0px',
               }
-            : {
-                // paddingTop: '10vh',
-                paddingLeft: '10vw',
-                backgroundImage: 'url(' + '/backgroundReg.jpg' + ')',
-                backgroundPosition: 'right 35% bottom',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                height: '100vh',
-              }
+
+          // props.page === 'home'
+          //   ? {
+          //       // paddingTop: '10vh',
+          //       paddingLeft: '10vw',
+          //       backgroundImage: 'url(' + '/background.jpg' + ')',
+          //       backgroundPosition: 'right 55% bottom',
+          //       // backgroundPosition: 'right 15% bottom 15%',
+          //       backgroundSize: 'cover',
+          //       backgroundRepeat: 'no-repeat',
+          //       height: '100vh',
+          //       overflowY: 'hidden',
+          //       paddingBottom: '0px',
+          //     }
+          //   : {
+          //       // paddingTop: '10vh',
+          //       paddingLeft: '10vw',
+          //       backgroundImage: 'url(' + '/backgroundReg.jpg' + ')',
+          //       backgroundPosition: 'right 35% bottom',
+          //       backgroundSize: 'cover',
+          //       backgroundRepeat: 'no-repeat',
+          //       height: '100vh',
+          //     }
         }
       >
         {/* 'https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350' */}

@@ -15,14 +15,14 @@ export default function PlanTrip(props) {
         <div className="planTripLocation">
           <div className="planTrip">
             <div className="planTripTextSmall">How does it work ?</div>
-            <div className="indexFlexSmall">
+            <div className="planTripText">
               Plan your trip with 3 short steps. <br />
               Meet the steps in the gallery <br />
               on the right.
             </div>
             <Link href="/startingPoint">
               <a>
-                <button className="indexButton">I want to start</button>
+                <button className="planTripButton">I want to start</button>
               </a>
             </Link>
           </div>
@@ -31,9 +31,9 @@ export default function PlanTrip(props) {
               <img
                 className="imagePlanTrip"
                 src="step1.jpg"
-                alt="Linkedin logo"
-                width="500"
-                height="300"
+                alt="Step 1"
+                // width="500vw"
+                // height="300vh"
               />
               <div class="overlayImgPlanTrip">
                 <div class="textOverlayPlanTrip">
@@ -48,9 +48,9 @@ export default function PlanTrip(props) {
               <img
                 className="imagePlanTrip"
                 src="step2.jpg"
-                alt="Linkedin logo"
-                width="500"
-                height="300"
+                alt="Step 2"
+                // width="500"
+                // height="300"
               />
               <div class="overlayImgPlanTrip">
                 <div class="textOverlayPlanTrip">
@@ -64,9 +64,9 @@ export default function PlanTrip(props) {
               <img
                 className="imagePlanTrip"
                 src="step3.jpg"
-                alt="Linkedin logo"
-                width="500"
-                height="300"
+                alt="Step 3"
+                // width="500"
+                // height="300"
               />
               <div class="overlayImgPlanTrip">
                 <div class="textOverlayPlanTrip">

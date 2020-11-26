@@ -6,7 +6,12 @@ export default function Footer(props) {
         <div>
           <Link href={'https://github.com/anastasiia-lk'}>
             <a>
-              <img src="github.png" alt="Github logo" width="50" height="50" />
+              <img
+                src="github.png"
+                alt="Github logo"
+                width="50vw"
+                height="50vh"
+              />
             </a>
           </Link>
         </div>
@@ -16,8 +21,8 @@ export default function Footer(props) {
               <img
                 src="linkedin.png"
                 alt="Linkedin logo"
-                width="50"
-                height="50"
+                width="50vw"
+                height="50vh"
               />
             </a>
           </Link>
@@ -29,12 +34,7 @@ export default function Footer(props) {
             }
           >
             <a>
-              <img
-                src="mail.png"
-                alt="Girl in a jacket"
-                width="48"
-                height="48"
-              />
+              <img src="mail.png" alt="Mail logo" width="50vw" height="50vh" />
             </a>
           </Link>
         </div>

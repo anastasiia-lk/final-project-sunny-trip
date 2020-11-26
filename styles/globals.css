@@ -3,12 +3,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
 html,
 body {
-  width: 100%;
+  /* width: 100%;
   height: 100%;
   margin: 0;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace; */
+  height: 100%;
+  font-size: 10px;
 }
 
 .pic {
@@ -84,8 +91,8 @@ button:hover {
 
 .indexButton {
   flex-wrap: wrap;
-  width: 400px;
-  height: 100px;
+  width: 25vw;
+  height: 12vh;
   background: url('/buttonBack.jpg');
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -94,15 +101,15 @@ button:hover {
   font-size: 24px;
   color: #ffffff;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
+  font-weight: 50rem;
   cursor: pointer;
-  margin-top: 70px;
+  margin-top: 20vh;
 }
 
 .planTripButton {
-  flex-wrap: wrap;
-  width: 200px;
-  height: 100px;
+  /* flex-wrap: wrap; */
+  width: 25vw;
+  height: 12vh;
   background: url('/buttonBack.jpg');
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -111,9 +118,9 @@ button:hover {
   font-size: 24px;
   color: #ffffff;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
+  font-weight: 50rem;
   cursor: pointer;
-  margin-top: 50px;
+  margin-top: 20vh;
 }
 
 .planTripButton:hover {
@@ -209,34 +216,50 @@ button:hover {
 .indexFlex {
   display: flex;
   color: white;
-  font-size: 80px;
-  font-weight: 500;
+  font-size: 8rem;
+  font-weight: 50rem;
   /* margin-top: -50px; */
   /* margin-bottom: 90px; */
   /* font-family: 'Homemade Apple', cursive; */
   font-family: 'Permanent Marker', cursive;
-  margin-top: 150px;
+  margin-top: 12vh;
+  height: 5vh;
 }
 
 .indexFlexSmall {
   display: small;
   color: white;
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 2.8rem;
+  font-weight: 50rem;
   /* margin-bottom: 50px; */
-  margin-top: 50px;
+  margin-top: 1vh;
   font-family: 'Open Sans', sans-serif;
+  height: 2vh;
+  margin-top: 25vh;
+}
+
+.planTripText {
+  display: small;
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 50rem;
+  /* margin-bottom: 50px; */
+  font-family: 'Open Sans', sans-serif;
+  height: 1vh;
+  width: 30vw;
+  margin-top: 1vh;
 }
 
 .indexFlexBig {
   display: flex;
   color: white;
-  font-size: 170px;
+  font-size: 17rem;
   font-weight: 500;
-  margin-top: 10px;
+  margin-top: 0.01vh;
   /* margin-bottom: 90px; */
   /* font-family: 'Homemade Apple', cursive; */
   font-family: 'Permanent Marker', cursive;
+  height: 5vh;
 }
 
 .footerStyle {
@@ -254,20 +277,20 @@ button:hover {
   padding-bottom: -158px; */
   left: 0;
   bottom: 0;
-  width: 100%;
-  height: 80px;
+  height: 0;
+  flex: 0 0 auto;
 }
 
 .iconbar {
   display: flex;
-  width: 10vw;
+  width: 8vw;
   /* height: 10vh; */
   justify-content: space-between;
 }
 
 .iconbar img {
-  margin-left: 200px;
-  padding: 0px 0px -100px 170px;
+  margin-left: 7vw;
+  /* padding: 0px 0px -100px 170px; */
 }
 .iconbar img:hover {
   filter: drop-shadow(6px 6px 3px white);
@@ -389,11 +412,13 @@ button:hover {
   justify-content: center;
   align-content: flex-end;
   align-items: left;
+  width: 25vw;
+  margin-left: -20vh;
 }
 
 .planTripImg {
-  margin-top: 100px;
-  margin-left: 300px;
+  margin-top: 10vh;
+  margin-left: 25vw;
   /* margin-left: -100px; */
   display: flex;
   flex-direction: column;
@@ -726,7 +751,6 @@ body {
 
 .planTripLocation {
   margin-top: 0;
-  margin-left: -400px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -768,10 +792,13 @@ body {
 .planTripTextSmall {
   /* margin-top: 150px;
   margin-bottom: 24px; */
-  font-size: 80px;
+  font-size: 8rem;
   color: white;
   font-family: 'Permanent Marker', cursive;
   text-align: left;
+  height: 30vh;
+  /* margin-bottom: 5vh; */
+  margin-top: 10vh;
 }
 .planTripTextBig {
   margin-top: -50px;
@@ -807,20 +834,23 @@ body {
 }
 
 .wrapper {
-  position: relative;
+  /* position: relative;
+  min-height: 100%; */
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
 }
 
 .wrapImgPlanTrip {
   position: relative;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 0.1vh;
 }
 
 .imagePlanTrip {
   display: block;
-  width: 500;
-  height: 300;
+  width: 30vw;
+  height: 25vh;
   border-radius: 10%;
 }
 
@@ -844,7 +874,7 @@ body {
 
 .textOverlayPlanTrip {
   color: white;
-  font-size: 20px;
+  font-size: 2rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1033,4 +1063,25 @@ body {
   font-weight: 500;
   cursor: pointer;
   margin-top: 30px;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.indexButton {
+  flex-wrap: wrap;
+  width: 25vw;
+  height: 12vh;
+  background: url('/buttonBack.jpg');
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.35rem;
+  font-weight: lighter;
+  font-size: 24px;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 50rem;
+  cursor: pointer;
+  margin-top: 20vh;
 }
