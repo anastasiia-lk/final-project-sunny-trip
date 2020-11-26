@@ -45,7 +45,7 @@ export default function Header(props) {
         )}
         {/* </div> */}
       </div>
-      <div className="container">
+      {/* <div className="container">
         {(() => {
           if (props.step === 1)
             return (
@@ -72,7 +72,7 @@ export default function Header(props) {
               </ul>
             );
         })()}
-      </div>
+      </div> */}
     </header>
   );
 }

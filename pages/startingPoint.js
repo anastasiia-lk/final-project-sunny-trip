@@ -178,9 +178,11 @@ export default function startingPoint(props) {
                     <button className="indexButton" onClick={getLocation}>
                       Get My Current Location
                     </button>
-                    <button className="nextButton" onClick={() => setStep(2)}>
-                      Next step
-                    </button>
+                    <div className="step2WrapButtons">
+                      <button className="nextButton" onClick={() => setStep(2)}>
+                        Next step
+                      </button>
+                    </div>
                   </div>
 
                   <div
@@ -217,63 +219,161 @@ export default function startingPoint(props) {
           );
         if (step === 2)
           return (
-            <div>
-              <Layout loggedIn={props.loggedIn} step={step}>
-                <Head>
-                  <title>Maximum Distance</title>
-                </Head>
-                <main>
-                  <div className="location">
-                    <input
-                      className="indexLocationItem1"
-                      type="text"
-                      id="distance"
-                      placeholder="Enter distance (km)"
-                      // className="bottomText"
-                      onChange={(event) =>
-                        setDistance(event.currentTarget.value)
-                      }
-                    />
-                    <input
-                      className="indexLocationItem1"
-                      type="text"
-                      id="population"
-                      placeholder="Enter population"
-                      // className="bottomText"
-                      onChange={(event) =>
-                        setPopulation(event.currentTarget.value)
-                      }
-                    />
-                    <br />
-                    <button
-                      className="indexButton"
-                      onClick={async (e) => {
-                        e.preventDefault();
+            <Layout loggedIn={props.loggedIn} step={step}>
+              <Head>
+                <title>Maximum Distance</title>
+              </Head>
+              <div className="step2Wrap">
+                <div className="step2Block">
+                  <div className="planTripTextSmall">Step 2</div>
+                  <div className="indexFlexSmall">
+                    Choose distance <br />
+                    to travel (km) <br />
+                  </div>
+                  <input
+                    className="step2Input"
+                    type="text"
+                    id="distance"
+                    placeholder="300"
+                    onChange={(event) => setDistance(event.currentTarget.value)}
+                  />
+                  <div className="indexFlexSmall">
+                    Choose minimum <br />
+                    number of habitans
+                  </div>
+                  <input
+                    className="step2Input"
+                    type="text"
+                    id="population"
+                    placeholder="300000"
+                    onChange={(event) =>
+                      setPopulation(event.currentTarget.value)
+                    }
+                  />
+                  <button
+                    className="indexButton"
+                    onClick={async (e) => {
+                      e.preventDefault();
 
-                        const response = await fetch('/api/cities', {
-                          method: 'POST',
-                          headers: {
-                            'Content-Type': 'application/json',
-                          },
-                          body: JSON.stringify({
-                            latcur,
-                            lngcur,
-                            distance,
-                            population,
-                          }),
-                        });
-                        const { cities, nearbyCities } = await response.json();
-                        // console.log(forecast);
-                        // const unixTimestamp = res.daily[6].dt;
-                        // const dateObj = new Date(unixTimestamp * 1000);
-                        // const utcString = dateObj.toUTCString();
-                        setCities(nearbyCities);
-                      }}
-                      className="indexButton"
-                    >
-                      Get Cities
+                      const response = await fetch('/api/cities', {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                          latcur,
+                          lngcur,
+                          distance,
+                          population,
+                        }),
+                      });
+                      const { cities, nearbyCities } = await response.json();
+                      setCities(nearbyCities);
+                    }}
+                    className="indexButton"
+                  >
+                    Get Cities
+                  </button>
+                  <div className="step2WrapButtons">
+                    <button className="nextButton" onClick={() => setStep(1)}>
+                      Back
                     </button>
-                    <ul className="tripWishListCities">
+
+                    <button className="nextButton" onClick={() => setStep(3)}>
+                      Next
+                    </button>
+                  </div>
+                </div>
+                <div className="step2List">
+                  <ul className="tripWishListCities">
+                    {cities.map((item) => (
+                      <li className="liStyle">
+                        <button
+                          className="checkedCity"
+                          onClick={() => {
+                            getSelectedCity(item);
+                          }}
+                        >
+                          Check weather
+                        </button>
+                        {'🚩'}
+                        {item.city}
+                        {',         '}
+                        {item.country}
+                        {'              '}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Layout>
+          );
+        {
+          /* <div className="location"> */
+        }
+        {
+          /* <input
+                    className="indexLocationItem1"
+                    type="text"
+                    id="distance"
+                    placeholder="Enter distance (km)"
+                    // className="bottomText"
+                    onChange={(event) => setDistance(event.currentTarget.value)}
+                  /> */
+        }
+        {
+          /* <input
+                    className="indexLocationItem1"
+                    type="text"
+                    id="population"
+                    placeholder="Enter population"
+                    // className="bottomText"
+                    onChange={(event) =>
+                      setPopulation(event.currentTarget.value)
+                    }
+                  />
+                  <br /> */
+        }
+        {
+          /* <button
+                    className="indexButton"
+                    onClick={async (e) => {
+                      e.preventDefault();
+
+                      const response = await fetch('/api/cities', {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                          latcur,
+                          lngcur,
+                          distance,
+                          population,
+                        }),
+                      });
+                      const { cities, nearbyCities } = await response.json();
+                      // console.log(forecast);
+                      // const unixTimestamp = res.daily[6].dt;
+                      // const dateObj = new Date(unixTimestamp * 1000);
+                      // const utcString = dateObj.toUTCString();
+                      setCities(nearbyCities);
+                    }}
+                    className="indexButton"
+                  >
+                    Get Cities
+                  </button> */
+        }
+        {
+          /* <div
+                    className="step1Img" */
+        }
+        {
+          /* // style={{ height: '50vh', width: '30%' }}
+                  > */
+        }
+        {
+          /* <ul className="tripWishListCities">
                       {cities.map((item) => (
                         <li className="liStyle">
                           {'📍'}
@@ -285,58 +385,62 @@ export default function startingPoint(props) {
                           <button
                             className="checkedCity"
                             onClick={() => {
-                              // e.preventDefault();
-                              // getSelectedCity();
-                              // getSelectedCity(item);
-                              // setSelectedCity(item);
+                              e.preventDefault();
+                              getSelectedCity();
                               getSelectedCity(item);
-                              // setStep(4);
+                              setSelectedCity(item);
+                              getSelectedCity(item);
+                              setStep(4);
                             }}
-                            // onClick={() => setSelectedCity(item)}
-                            // onClick={getCheckedCity(item)}
+                            onClick={() => setSelectedCity(item)}
+                            onClick={getCheckedCity(item)}
                           >
                             Check
                           </button>
-                          {/* <input
+                          <input
                             type="checkbox"
                             onChange={(event) => setSelectedCity(item)}
-                          ></input> */}
+                          ></input>
                         </li>
                       ))}
-                      {/* (
+                      (
                         <li>{item.city}</li>
-                      ) */}
-                      {/* <li>{cities?.[0]?.city}</li> */}
+                      )
+                      <li>{cities?.[0]?.city}</li>
                     </ul>
-                    <div className="locationButtonBox">
-                      <button
-                        className="locationButton"
-                        onClick={() => setStep(1)}
-                      >
-                        Back
-                      </button>
+                  </div> */
+        }
+        {
+          /* <div className="locationButtonBox">
+                    <button
+                      className="locationButton"
+                      onClick={() => setStep(1)}
+                    >
+                      Back
+                    </button>
 
-                      <button
-                        className="locationButton"
-                        onClick={() => setStep(3)}
-                      >
-                        Next
-                      </button>
-                      <button className="locationButton" onClick={check}>
-                        Check
-                      </button>
-                      {/* <button
+                    <button
+                      className="locationButton"
+                      onClick={() => setStep(3)}
+                    >
+                      Next
+                    </button>
+                    <button className="locationButton" onClick={check}>
+                      Check
+                    </button> */
+        }
+        {
+          /* <button
                         className="locationButton"
                         onClick={getCheckedCity}
                       >
                         Check
-                      </button> */}
-                    </div>
-                  </div>
-                </main>
-              </Layout>
-            </div>
-          );
+                      </button> */
+        }
+        //       </div>
+        //     </div>
+        //   </Layout>
+        // );
         if (step === 3)
           return (
             <div>

@@ -507,7 +507,7 @@ button:hover {
 .tripWishListCities {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   flex-direction: column;
   font-weight: lighter;
   font-size: 24px;
@@ -631,17 +631,21 @@ body {
 }
 
 .checkedCity {
-  margin-top: 10px;
-  width: 100px;
-  height: 30px;
-  background: #1ac0c6;
-  border: 10px solid#1ac0c6;
+  margin-top: 30px;
+  margin-right: 70px;
+  width: 139px;
+  height: 39px;
+  border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0.35rem;
   font-weight: lighter;
-  font-size: 12px;
+  font-size: 16px;
   color: #ffffff;
   text-align: center;
+  cursor: pointer;
+  background: url('/buttonBack.jpg');
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
 }
 
 .checkedWeather {
@@ -779,6 +783,11 @@ body {
 
 .liStyle {
   list-style-type: none;
+  display: small;
+  color: rgb(145, 22, 40);
+  font-size: 28px;
+  font-weight: 500;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* .indexFlex {
@@ -895,4 +904,57 @@ body {
   background: url('/buttonBack.jpg');
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
+}
+
+.step2Wrap {
+  margin-top: 0;
+  margin-left: -400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: center;
+}
+
+.step2Block {
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  margin-top: 150px;
+}
+
+.step2Input {
+  margin-top: 10px;
+  width: 200px;
+  height: 39px;
+  border: 2px solid rgb(145, 22, 40);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-weight: lighter;
+  font-size: 24px;
+  color: rgb(145, 22, 40);
+  border-radius: 3%;
+}
+
+.step2List {
+  margin-top: 10px;
+  margin-left: 300px;
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  height: 50vh;
+  width: 30%;
+}
+
+.step2WrapButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
 }
