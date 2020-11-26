@@ -15,37 +15,67 @@ export default function Login(props: Props) {
   const [errorMessage, setErrorMessage] = useState('');
   const router = useRouter();
   return (
-    <Layout loggedIn={props.loggedIn}>
+    <Layout loggedIn={props.loggedIn} page="login">
       <Head>
         <title>Sunny Trip</title>
       </Head>
       <main>
-        <div className="indexLocation">
-          <form
-            className="indexLocation"
-            onSubmit={async (e) => {
-              e.preventDefault();
+        {/* <div className="indexLocation"> */}
+        <div className="loginWrap">
+          <div className="step2Block">
+            <form
+              className="step2Block"
+              onSubmit={async (e) => {
+                e.preventDefault();
 
-              const response = await fetch('/api/login', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-              });
+                const response = await fetch('/api/login', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ username, password }),
+                });
 
-              const { success } = await response.json();
+                const { success } = await response.json();
 
-              if (!success) {
-                setErrorMessage('Login failed!');
-              } else {
-                setErrorMessage('');
-                router.push(props.redirectDestination);
-              }
-            }}
-          >
-            <input
-              className="indexLocationItem1"
+                if (!success) {
+                  setErrorMessage('Login failed!');
+                } else {
+                  setErrorMessage('');
+                  router.push(props.redirectDestination);
+                }
+              }}
+            >
+              <div className="planTripTextSmall">Login</div>
+              <div className="indexFlexSmall">
+                before you will start <br />
+                your journey
+                <br />
+              </div>
+              <input
+                className="step2Input"
+                type="text"
+                placeholder="Username"
+                value={username}
+                data-cy="username"
+                onChange={(e) => setUsername(e.currentTarget.value)}
+                onFocus={(e) => (e.currentTarget.value = '')}
+              />
+              <input
+                className="step2Input"
+                type="password"
+                placeholder="Password"
+                value={password}
+                data-cy="password"
+                onChange={(e) => setPassword(e.currentTarget.value)}
+                onFocus={(e) => (e.currentTarget.value = '')}
+              />
+              {/* <button className="indexLocationItem3" data-cy="login">
+                Login
+              </button> */}
+
+              {/* <input
+              className="step2Input"
               type="text"
               placeholder="Username"
               value={username}
@@ -53,21 +83,24 @@ export default function Login(props: Props) {
               onChange={(e) => setUsername(e.currentTarget.value)}
             />
             <input
-              className="indexLocationItem2"
+              className="step2Input"
               type="text"
               placeholder="Password"
               value={password}
               data-cy="password"
               onChange={(e) => setPassword(e.currentTarget.value)}
-            />
-            <button className="indexLocationItem3" data-cy="login">
-              Login
-            </button>
-          </form>
-          <p style={{ color: 'red' }}>{errorMessage}</p>
-          <Link href="/registration">
-            <button className="indexLocationItem4">Registration</button>
-          </Link>
+            /> */}
+              <button className="loginButton" data-cy="login">
+                Login
+              </button>
+            </form>
+            <p style={{ color: 'red' }}>{errorMessage}</p>
+            <div className="step2WrapButtons">
+              <Link href="/registration">
+                <button className="loginButton">Registration</button>
+              </Link>
+            </div>
+          </div>
         </div>
       </main>
     </Layout>

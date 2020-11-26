@@ -236,10 +236,11 @@ export default function startingPoint(props) {
                     id="distance"
                     placeholder="300"
                     onChange={(event) => setDistance(event.currentTarget.value)}
+                    onFocus={(e) => (e.currentTarget.value = '')}
                   />
                   <div className="indexFlexSmall">
                     Choose minimum <br />
-                    number of habitans
+                    number of habitants
                   </div>
                   <input
                     className="step2Input"
@@ -249,6 +250,7 @@ export default function startingPoint(props) {
                     onChange={(event) =>
                       setPopulation(event.currentTarget.value)
                     }
+                    onFocus={(e) => (e.currentTarget.value = '')}
                   />
                   <button
                     className="indexButton"

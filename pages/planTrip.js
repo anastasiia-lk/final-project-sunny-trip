@@ -14,7 +14,7 @@ export default function PlanTrip(props) {
       <main>
         <div className="planTripLocation">
           <div className="planTrip">
-            <div className="planTripTextSmall">How it works ?</div>
+            <div className="planTripTextSmall">How does it work ?</div>
             <div className="indexFlexSmall">
               Plan your trip with 3 short steps. <br />
               Meet the steps in the gallery <br />
