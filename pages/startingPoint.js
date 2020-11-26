@@ -449,18 +449,178 @@ export default function startingPoint(props) {
                   <title>Weather Forecast</title>
                 </Head>
                 <main>
-                  <div className="location">
-                    {/* <div className="tripWishList"> */}
-                    {/* <div className="dateText">Sunny weather forecast</div> */}
-                    {/* </div> */}
-                    <div className="dateText">
+                  <div className="step2Wrap">
+                    <div className="step2Block">
+                      <div className="planTripTextSmall">Step 3</div>
+                      <div className="indexFlexSmall">
+                        Click the button <br />
+                        to get the weather forecast
+                        <br />
+                        for the next week in
+                        <br />
+                        {selectedCity.city}, {selectedCity.country}
+                      </div>
+                      <button
+                        // onClick={() => getWeather()}
+                        onClick={async (e) => {
+                          e.preventDefault();
+
+                          const response = await fetch('/api/weather', {
+                            method: 'POST',
+                            headers: {
+                              'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ lat, lon }),
+                          });
+                          const {
+                            lt,
+                            ln,
+                            dateForecast,
+                          } = await response.json();
+                          // console.log(forecast);
+                          // const unixTimestamp = res.daily[6].dt;
+                          // const dateObj = new Date(unixTimestamp * 1000);
+                          // const utcString = dateObj.toUTCString();
+                          setDateForecast(dateForecast);
+                          setLt(lt);
+                          setLn(ln);
+                        }}
+                        className="indexButton"
+                      >
+                        Get Forecast
+                      </button>
+
+                      <div className="step2WrapButtons">
+                        <button
+                          className="nextButton"
+                          onClick={() => setStep(2)}
+                        >
+                          Back
+                        </button>
+                      </div>
+                    </div>
+                    <div className="step3List">
+                      <ul className="tripWeather">
+                        {dateForecast.map((item) => (
+                          <li className="liStyleWeather">
+                            {/* {lt}//
+                          {ln}// */}
+                            <button
+                              className="checkedWeather"
+                              onClick={async (e) => {
+                                e.preventDefault();
+                                const response = await fetch('/api/trips', {
+                                  method: 'POST',
+                                  headers: {
+                                    'Content-Type': 'application/json',
+                                  },
+                                  body: JSON.stringify({
+                                    date: item.date,
+                                    temp: item.temp,
+                                    long: item.long,
+                                    icon: item.icon,
+                                    city: selectedCity.city,
+                                    country: selectedCity.country,
+                                  }),
+                                });
+                                router.push('/profile');
+                                // setStep(4);
+                              }}
+                              // onClick={() => setSelectedCity(item)}
+                              // onClick={getCheckedCity(item)}
+                            >
+                              Add to trip list
+                            </button>
+                            <img
+                              src={item.icon}
+                              alt="weather"
+                              width="30"
+                              height="30"
+                            />
+                            {'📅'}
+                            {'  '}
+                            {item.date} {'🌡'}
+                            {'  '}
+                            {item.temp}°C {'📝'}
+                            {'  '}
+                            {item.long}
+                            {'  '}
+                            {/* <img src={item.icon} alt="weather" />
+                            {'  '} */}
+                            {/* <button
+                              className="checkedWeather"
+                              onClick={async (e) => {
+                                e.preventDefault();
+                                const response = await fetch('/api/trips', {
+                                  method: 'POST',
+                                  headers: {
+                                    'Content-Type': 'application/json',
+                                  },
+                                  body: JSON.stringify({
+                                    date: item.date,
+                                    temp: item.temp,
+                                    long: item.long,
+                                    icon: item.icon,
+                                    city: selectedCity.city,
+                                    country: selectedCity.country,
+                                  }),
+                                });
+                                router.push('/profile'); */}
+                            {/* // setStep(4);
+                              }}
+                              // onClick={() => setSelectedCity(item)}
+                              // onClick={getCheckedCity(item)}
+                            >
+                              Add to trip list
+                            </button> */}
+                            {/* {lt}//
+                        {ln}// */}
+                            {/* {updatedWeather?.daily?.[6]?.dt}//
+                        {tripDate}// */}
+                            {/* {weather?.daily?.[6]?.temp?.day}//
+                        {weather?.daily?.[6]?.pressure} hPa//
+                        {weather?.daily?.[6]?.humidity} %//
+                        {weather?.daily?.[6]?.wind_speed} metre/sec//
+                        {weather?.daily?.[6]?.weather?.[0]?.icon}//
+                        {weather?.daily?.[6]?.weather?.[0]?.main}//
+                        {weather?.daily?.[6]?.weather?.[0]?.description}//
+                        <img src={icon} alt="weather" />
+                        //
+                        {weather?.lat}//
+                        {weather?.lon}// */}
+                            {/* {selectedCity.city}//
+                          {selectedCity.country}//
+                          {selectedCity.latitude}//
+                          {selectedCity.longitude}// */}
+                            <br />
+                            <br />
+                            <br />
+                          </li>
+                        ))}
+                        {/* ))
+                       <li>{weather.daily[0]}</li>
+                <li>{weather.daily[1]}</li>
+                <li>{weather.daily[2]}</li>
+                <li>{weather.daily[3]}</li>
+                <li>{weather.daily[4]}</li>
+                <li>{weather.daily[5]}</li>
+                <li>{weather.daily[6]}</li>
+                <li>{weather.daily[7]}</li>  */}
+                      </ul>
+                    </div>
+                  </div>
+                  {/* <div className="location"> */}
+                  {/* <div className="tripWishList"> */}
+                  {/* <div className="dateText">Sunny weather forecast</div> */}
+                  {/* </div> */}
+                  {/* <div className="dateText">
                       One week daily weather forecast
                     </div>
                     <div className="dateText">
                       {selectedCity.city}, {selectedCity.country}
                     </div>
-                    <button
-                      // onClick={() => getWeather()}
+                    <button */}
+                  {/* // onClick={() => getWeather()}
                       onClick={async (e) => {
                         e.preventDefault();
 
@@ -471,8 +631,8 @@ export default function startingPoint(props) {
                           },
                           body: JSON.stringify({ lat, lon }),
                         });
-                        const { lt, ln, dateForecast } = await response.json();
-                        // console.log(forecast);
+                        const { lt, ln, dateForecast } = await response.json(); */}
+                  {/* // console.log(forecast);
                         // const unixTimestamp = res.daily[6].dt;
                         // const dateObj = new Date(unixTimestamp * 1000);
                         // const utcString = dateObj.toUTCString();
@@ -488,10 +648,10 @@ export default function startingPoint(props) {
                     <br />
                     <ul className="tripWishListCities">
                       {dateForecast.map((item) => (
-                        <li className="liStyle">
-                          {/* {lt}//
+                        <li className="liStyle"> */}
+                  {/* {lt}//
                           {ln}// */}
-                          {'📅'}
+                  {/* {'📅'}
                           {'  '}
                           {item.date} {'🌡'}
                           {'  '}
@@ -519,19 +679,19 @@ export default function startingPoint(props) {
                                   country: selectedCity.country,
                                 }),
                               });
-                              router.push('/profile');
-                              // setStep(4);
+                              router.push('/profile'); */}
+                  {/* // setStep(4);
                             }}
                             // onClick={() => setSelectedCity(item)}
                             // onClick={getCheckedCity(item)}
                           >
                             Add to wish list
-                          </button>
-                          {/* {lt}//
+                          </button> */}
+                  {/* {lt}//
                         {ln}// */}
-                          {/* {updatedWeather?.daily?.[6]?.dt}//
+                  {/* {updatedWeather?.daily?.[6]?.dt}//
                         {tripDate}// */}
-                          {/* {weather?.daily?.[6]?.temp?.day}//
+                  {/* {weather?.daily?.[6]?.temp?.day}//
                         {weather?.daily?.[6]?.pressure} hPa//
                         {weather?.daily?.[6]?.humidity} %//
                         {weather?.daily?.[6]?.wind_speed} metre/sec//
@@ -542,16 +702,16 @@ export default function startingPoint(props) {
                         //
                         {weather?.lat}//
                         {weather?.lon}// */}
-                          {/* {selectedCity.city}//
+                  {/* {selectedCity.city}//
                           {selectedCity.country}//
                           {selectedCity.latitude}//
                           {selectedCity.longitude}// */}
-                          <br />
+                  {/* <br />
                           <br />
                           <br />
                         </li>
-                      ))}
-                      {/* ))
+                      ))} */}
+                  {/* ))
                        <li>{weather.daily[0]}</li>
                 <li>{weather.daily[1]}</li>
                 <li>{weather.daily[2]}</li>
@@ -560,7 +720,7 @@ export default function startingPoint(props) {
                 <li>{weather.daily[5]}</li>
                 <li>{weather.daily[6]}</li>
                 <li>{weather.daily[7]}</li>  */}
-                    </ul>
+                  {/* </ul>
                     <div className="locationButtonBox">
                       <button
                         className="locationButton"
@@ -573,8 +733,8 @@ export default function startingPoint(props) {
                       <button className="locationButton" onClick={check}>
                         Check
                       </button>
-                    </div>
-                  </div>
+                    </div> */}
+                  {/* </div> */}
                 </main>
               </Layout>
             </div>

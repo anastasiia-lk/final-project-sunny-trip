@@ -958,3 +958,52 @@ body {
   align-content: flex-end;
   align-items: left;
 }
+
+.step3List {
+  margin-top: 300px;
+  margin-left: 300px;
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  height: 50vh;
+  width: 40%;
+  margin-right: -300px;
+}
+
+.liStyleWeather {
+  list-style-type: none;
+  display: small;
+  color: rgb(145, 22, 40);
+  font-size: 22px;
+  font-weight: 500;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.tripWeather {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  font-weight: lighter;
+}
+
+.checkedWeather {
+  margin-top: 0px;
+  margin-right: 0px;
+  width: 139px;
+  height: 39px;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.35rem;
+  font-weight: lighter;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  background: url('/buttonBack.jpg');
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+}
