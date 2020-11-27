@@ -43,7 +43,7 @@ export default function Profile(props: { user: User; loggedIn: boolean }) {
         <div className="profileWrap">
           <div className="profileBlock">
             <div className="profileBlock">
-              <div className="profileTextSmall">Hello,</div>
+              <div className="profileTextSmall">Hello</div>
               <div className="profileTextHello">
                 {/* Hello, */}
                 {'     '}
