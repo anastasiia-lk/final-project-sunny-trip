@@ -106,6 +106,40 @@ button:hover {
   margin-top: 20vh;
 }
 
+.step2Button {
+  flex-wrap: wrap;
+  width: 25vw;
+  height: 12vh;
+  background: url('/buttonBack.jpg');
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.35rem;
+  font-weight: lighter;
+  font-size: 24px;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 50rem;
+  cursor: pointer;
+  margin-top: 2vh;
+}
+
+.step3Button {
+  flex-wrap: wrap;
+  width: 25vw;
+  height: 12vh;
+  background: url('/buttonBack.jpg');
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.35rem;
+  font-weight: lighter;
+  font-size: 24px;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 50rem;
+  cursor: pointer;
+  margin-top: 22vh;
+}
+
 .planTripButton {
   /* flex-wrap: wrap; */
   width: 25vw;
@@ -226,13 +260,46 @@ button:hover {
   height: 5vh;
 }
 
-.indexFlexSmall {
+.step2Text {
+  display: small;
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 50rem;
+  /* margin-bottom: 50px; */
+  margin-top: 0;
+  font-family: 'Open Sans', sans-serif;
+  height: 2vh;
+}
+
+.step3Text {
+  display: small;
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 50rem;
+  /* margin-bottom: 50px; */
+  margin-top: 0;
+  font-family: 'Open Sans', sans-serif;
+  height: 2vh;
+}
+
+.step1Text {
   display: small;
   color: white;
   font-size: 2.8rem;
   font-weight: 50rem;
   /* margin-bottom: 50px; */
   margin-top: 1vh;
+  font-family: 'Open Sans', sans-serif;
+  height: 2vh;
+  margin-top: 0;
+}
+
+.indexFlexSmall {
+  display: small;
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 50rem;
+  /* margin-bottom: 50px; */
   font-family: 'Open Sans', sans-serif;
   height: 2vh;
   margin-top: 25vh;
@@ -548,7 +615,17 @@ button:hover {
   align-items: left;
   flex-direction: column;
   font-weight: lighter;
-  font-size: 24px;
+  font-size: 2.4rem;
+  color: #444646;
+}
+
+.tripWeather {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  font-weight: lighter;
+  font-size: 2rem;
   color: #444646;
 }
 
@@ -669,21 +746,21 @@ body {
 }
 
 .checkedCity {
-  margin-top: 30px;
-  margin-right: 70px;
-  width: 139px;
-  height: 39px;
+  margin-top: 3vh;
+  margin-right: 4vw;
+  width: 9vw;
+  height: 5vh;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0.35rem;
   font-weight: lighter;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #ffffff;
   text-align: center;
   cursor: pointer;
   background: url('/buttonBack.jpg');
   font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
+  font-weight: 50rem;
 }
 
 .checkedWeather {
@@ -802,6 +879,42 @@ body {
   align-items: center;
 }
 
+.step2TextSmall {
+  /* margin-top: 150px;
+  margin-bottom: 24px; */
+  font-size: 8rem;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  text-align: left;
+  height: 20vh;
+  /* margin-bottom: 5vh; */
+  margin-top: 0;
+}
+
+.step3TextSmall {
+  /* margin-top: 150px;
+  margin-bottom: 24px; */
+  font-size: 8rem;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  text-align: left;
+  height: 20vh;
+  /* margin-bottom: 5vh; */
+  margin-top: 0;
+}
+
+.step1TextSmall {
+  /* margin-top: 150px;
+  margin-bottom: 24px; */
+  font-size: 8rem;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  text-align: left;
+  height: 30vh;
+  /* margin-bottom: 5vh; */
+  margin-top: 0;
+}
+
 .planTripTextSmall {
   /* margin-top: 150px;
   margin-bottom: 24px; */
@@ -811,7 +924,7 @@ body {
   text-align: left;
   height: 30vh;
   /* margin-bottom: 5vh; */
-  margin-top: 10vh;
+  margin-top: 0;
 }
 
 .loginTextSmall {
@@ -839,9 +952,19 @@ body {
   list-style-type: none;
   display: small;
   color: rgb(145, 22, 40);
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 2.8rem;
+  font-weight: 50rem;
   font-family: 'Open Sans', sans-serif;
+}
+
+.liStyleWeather {
+  list-style-type: none;
+  display: small;
+  color: rgb(145, 22, 40);
+  font-size: 2rem;
+  font-weight: 50rem;
+  font-family: 'Open Sans', sans-serif;
+  padding-bottom: -100vh;
 }
 
 /* .indexFlex {
@@ -914,7 +1037,7 @@ body {
 
 .step1Wrap {
   margin-top: 0;
-  margin-left: -400px;
+  margin-left: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -929,11 +1052,12 @@ body {
   justify-content: center;
   align-content: flex-end;
   align-items: left;
-  margin-top: 300px;
+  margin-top: 7vh;
+  margin-left: -30vh;
 }
 
 .step1Img {
-  margin-top: 300px;
+  margin-top: 0;
   margin-left: 300px;
   /* margin-left: -100px; */
   display: flex;
@@ -942,25 +1066,25 @@ body {
   align-content: flex-end;
   align-items: center;
   height: 50vh;
-  width: 30%;
+  width: 30vw;
 }
 
 .nextButton {
-  margin-top: 30px;
-  margin-right: 5px;
-  width: 139px;
-  height: 39px;
+  margin-top: 5vh;
+  margin-right: 1vh;
+  width: 10vw;
+  height: 6vh;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0.35rem;
   font-weight: lighter;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: #ffffff;
   text-align: center;
   cursor: pointer;
   background: url('/buttonBack.jpg');
   font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
+  font-weight: 50rem;
 }
 
 .step2Wrap {
@@ -971,6 +1095,38 @@ body {
   justify-content: center;
   align-content: flex-end;
   align-items: center;
+}
+
+.step3Wrap {
+  margin-top: 0;
+  margin-left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: center;
+}
+
+.step2Block {
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  margin-top: 7vh;
+  margin-left: 0vh;
+}
+
+.step3Block {
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  margin-top: -15vh;
+  margin-left: 0vh;
 }
 
 .loginBlock {
@@ -1021,8 +1177,8 @@ body {
 }
 
 .step2List {
-  margin-top: 10px;
-  margin-left: 300px;
+  margin-top: 1vh;
+  margin-left: 10vw;
   /* margin-left: -100px; */
   display: flex;
   flex-direction: column;
@@ -1030,64 +1186,56 @@ body {
   align-content: flex-end;
   align-items: left;
   height: 50vh;
-  width: 30%;
+  width: 45vw;
+}
+
+.step3List {
+  margin-top: 5vh;
+  margin-left: 10vw;
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  height: 100%;
+  width: 50vw;
+  /* height: 20vh;
+  width: 70vw; */
 }
 
 .step2WrapButtons {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-content: flex-end;
-  align-items: left;
+  justify-content: left;
+  /* align-content: flex-end; */
+  align-items: center;
 }
 
-.step3List {
-  margin-top: 300px;
-  margin-left: 300px;
-  /* margin-left: -100px; */
+.step3WrapButtons {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: flex-end;
-  align-items: left;
-  height: 50vh;
-  width: 40%;
-  margin-right: -300px;
-}
-
-.liStyleWeather {
-  list-style-type: none;
-  display: small;
-  color: rgb(145, 22, 40);
-  font-size: 22px;
-  font-weight: 500;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.tripWeather {
-  display: flex;
-  justify-content: center;
-  align-items: left;
-  flex-direction: column;
-  font-weight: lighter;
+  flex-direction: row;
+  justify-content: left;
+  /* align-content: flex-end; */
+  align-items: center;
 }
 
 .checkedWeather {
   margin-top: 0px;
   margin-right: 0px;
-  width: 139px;
-  height: 39px;
+  width: 9vw;
+  height: 5vh;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0.35rem;
   font-weight: lighter;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #ffffff;
   text-align: center;
   cursor: pointer;
   background: url('/buttonBack.jpg');
   font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
+  font-weight: 50rem;
 }
 
 .loginWrap {
@@ -1122,7 +1270,7 @@ body {
   flex: 1 0 auto;
 }
 
-.indexButton {
+.step1Button {
   flex-wrap: wrap;
   width: 25vw;
   height: 12vh;

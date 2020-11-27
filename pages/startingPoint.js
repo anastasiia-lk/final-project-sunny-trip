@@ -169,13 +169,13 @@ export default function startingPoint(props) {
               <main>
                 <div className="step1Wrap">
                   <div className="step1Block">
-                    <div className="planTripTextSmall">Step 1</div>
-                    <div className="indexFlexSmall">
+                    <div className="step1TextSmall">Step 1</div>
+                    <div className="step1Text">
                       Click the button below <br />
                       to get your <br />
                       current location
                     </div>
-                    <button className="indexButton" onClick={getLocation}>
+                    <button className="step1Button" onClick={getLocation}>
                       Get My Current Location
                     </button>
                     <div className="step2WrapButtons">
@@ -225,11 +225,13 @@ export default function startingPoint(props) {
               </Head>
               <div className="step2Wrap">
                 <div className="step2Block">
-                  <div className="planTripTextSmall">Step 2</div>
-                  <div className="indexFlexSmall">
-                    Choose distance <br />
-                    to travel (km) <br />
+                  <div className="step2TextSmall">Step 2</div>
+                  <div className="step2Text">
+                    Choose distance to travel (km) <br />
                   </div>
+                  <br />
+                  <br />
+                  <br />
                   <input
                     className="step2Input"
                     type="text"
@@ -238,10 +240,13 @@ export default function startingPoint(props) {
                     onChange={(event) => setDistance(event.currentTarget.value)}
                     onFocus={(e) => (e.currentTarget.value = '')}
                   />
-                  <div className="indexFlexSmall">
-                    Choose minimum <br />
-                    number of habitants
+                  <br />
+                  <div className="step2Text">
+                    Choose min number of habitants
                   </div>
+                  <br />
+                  <br />
+                  <br />
                   <input
                     className="step2Input"
                     type="text"
@@ -253,7 +258,6 @@ export default function startingPoint(props) {
                     onFocus={(e) => (e.currentTarget.value = '')}
                   />
                   <button
-                    className="indexButton"
                     onClick={async (e) => {
                       e.preventDefault();
 
@@ -272,7 +276,7 @@ export default function startingPoint(props) {
                       const { cities, nearbyCities } = await response.json();
                       setCities(nearbyCities);
                     }}
-                    className="indexButton"
+                    className="step2Button"
                   >
                     Get Cities
                   </button>
@@ -451,10 +455,10 @@ export default function startingPoint(props) {
                   <title>Weather Forecast</title>
                 </Head>
                 <main>
-                  <div className="step2Wrap">
-                    <div className="step2Block">
-                      <div className="planTripTextSmall">Step 3</div>
-                      <div className="indexFlexSmall">
+                  <div className="step3Wrap">
+                    <div className="step3Block">
+                      <div className="step3TextSmall">Step 3</div>
+                      <div className="step3Text">
                         Click the button <br />
                         to get the weather forecast
                         <br />
@@ -487,12 +491,12 @@ export default function startingPoint(props) {
                           setLt(lt);
                           setLn(ln);
                         }}
-                        className="indexButton"
+                        className="step3Button"
                       >
                         Get Forecast
                       </button>
 
-                      <div className="step2WrapButtons">
+                      <div className="step3WrapButtons">
                         <button
                           className="nextButton"
                           onClick={() => setStep(2)}
@@ -536,8 +540,8 @@ export default function startingPoint(props) {
                             <img
                               src={item.icon}
                               alt="weather"
-                              width="30"
-                              height="30"
+                              width="30vh"
+                              height="30vw"
                             />
                             {'📅'}
                             {'  '}
