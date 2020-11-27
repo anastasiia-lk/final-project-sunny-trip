@@ -2,7 +2,8 @@ import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
 // import homePic from './homePic.jpg';
-
+const pageBackground = { home: 'background.jpg', login: 'loginBack.jpg' };
+const defaultBackground = 'backgroundReg.jpg';
 export default function Layout(props) {
   return (
     <div className="wrapper">
@@ -13,44 +14,57 @@ export default function Layout(props) {
       <main
         className="content"
         style={
-          props.page !== 'home'
-            ? {
-                paddingTop: '10vh',
-                paddingLeft: '10vw',
-                backgroundImage: 'url(' + '/backgroundReg.jpg' + ')',
-                backgroundPosition: 'right 55% bottom',
-                // backgroundPosition: 'right 15% bottom 15%',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                height: '100vh',
-                overflowY: 'hidden',
-                paddingBottom: '0px',
-              }
-            : props.page === 'login'
-            ? {
-                paddingTop: '10vh',
-                paddingLeft: '10vw',
-                backgroundImage: 'url(' + '/loginBack.jpg' + ')',
-                backgroundPosition: 'right 55% bottom',
-                // backgroundPosition: 'right 15% bottom 15%',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                height: '100vh',
-                overflowY: 'hidden',
-                paddingBottom: '0px',
-              }
-            : {
-                paddingTop: '10vh',
-                paddingLeft: '10vw',
-                backgroundImage: 'url(' + '/background.jpg' + ')',
-                backgroundPosition: 'right 55% bottom',
-                // backgroundPosition: 'right 15% bottom 15%',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                height: '100vh',
-                overflowY: 'hidden',
-                paddingBottom: '0px',
-              }
+          {
+            paddingTop: '10vh',
+            paddingLeft: '10vw',
+            backgroundImage:
+              'url(/' + (pageBackground[props.page] || defaultBackground) + ')',
+            backgroundPosition: 'right 55% bottom',
+            // backgroundPosition: 'right 15% bottom 15%',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            height: '100vh',
+            overflowY: 'hidden',
+            paddingBottom: '0px',
+          }
+          // props.page !== 'home'
+          //   ? {
+          //       paddingTop: '10vh',
+          //       paddingLeft: '10vw',
+          //       backgroundImage: 'url(' + '/backgroundReg.jpg' + ')',
+          //       backgroundPosition: 'right 55% bottom',
+          //       // backgroundPosition: 'right 15% bottom 15%',
+          //       backgroundSize: 'cover',
+          //       backgroundRepeat: 'no-repeat',
+          //       height: '100vh',
+          //       overflowY: 'hidden',
+          //       paddingBottom: '0px',
+          //     }
+          //   : props.page === 'login'
+          //   ? {
+          //       paddingTop: '10vh',
+          //       paddingLeft: '10vw',
+          //       backgroundImage: 'url(' + '/loginBack.jpg' + ')',
+          //       backgroundPosition: 'right 55% bottom',
+          //       // backgroundPosition: 'right 15% bottom 15%',
+          //       backgroundSize: 'cover',
+          //       backgroundRepeat: 'no-repeat',
+          //       height: '100vh',
+          //       overflowY: 'hidden',
+          //       paddingBottom: '0px',
+          //     }
+          //   : {
+          //       paddingTop: '10vh',
+          //       paddingLeft: '10vw',
+          //       backgroundImage: 'url(' + '/background.jpg' + ')',
+          //       backgroundPosition: 'right 55% bottom',
+          //       // backgroundPosition: 'right 15% bottom 15%',
+          //       backgroundSize: 'cover',
+          //       backgroundRepeat: 'no-repeat',
+          //       height: '100vh',
+          //       overflowY: 'hidden',
+          //       paddingBottom: '0px',
+          //     }
 
           // props.page === 'home'
           //   ? {
