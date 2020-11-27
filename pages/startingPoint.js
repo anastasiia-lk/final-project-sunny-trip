@@ -33,7 +33,7 @@ export default function startingPoint(props) {
   // States for rendering Plan Trip steps pages
   const [step, setStep] = useState(1);
   //States for Google Maps&Current Location
-  const key_google_maps = process.env.REACT_APP_WEATHER_APP_API_KEY;
+  const key_google_maps = props.keyGoogle;
   const [latcur, setlatcur] = useState(59.95);
   const [lngcur, setlngcur] = useState(30.33);
   //State for Trip Date
@@ -755,6 +755,7 @@ export async function getServerSideProps(context) {
   const { session: token } = nextCookies(context);
   return {
     props: {
+      keyGoogle: process.env.REACT_APP_WEATHER_APP_API_KEY,
       loggedIn: await isSessionTokenValid(token),
     },
   };
