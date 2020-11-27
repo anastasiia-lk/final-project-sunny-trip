@@ -271,6 +271,39 @@ button:hover {
   height: 2vh;
 }
 
+.profileTextHello {
+  display: small;
+  color: white;
+  font-size: 4.2rem;
+  font-weight: 50rem;
+  /* margin-bottom: 50px; */
+  margin-top: -10vh;
+  font-family: 'Permanent Marker', cursive;
+  height: 0vh;
+}
+
+.profileText {
+  display: small;
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 50rem;
+  /* margin-bottom: 50px; */
+  margin-top: 0;
+  font-family: 'Open Sans', sans-serif;
+  height: 2vh;
+}
+
+.profileFont {
+  display: small;
+  color: white;
+  font-size: 2rem;
+  font-weight: 50rem;
+  /* margin-bottom: 50px; */
+  margin-top: 0;
+  font-family: 'Open Sans', sans-serif;
+  height: 2vh;
+}
+
 .step3Text {
   display: small;
   color: white;
@@ -891,6 +924,18 @@ body {
   margin-top: 0;
 }
 
+.profileTextSmall {
+  /* margin-top: 150px;
+  margin-bottom: 24px; */
+  font-size: 8rem;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  text-align: left;
+  height: 20vh;
+  /* margin-bottom: 5vh; */
+  margin-top: 0;
+}
+
 .step3TextSmall {
   /* margin-top: 150px;
   margin-bottom: 24px; */
@@ -1096,6 +1141,16 @@ body {
   align-items: center;
 }
 
+.profileWrap {
+  margin-top: 0;
+  margin-left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: center;
+}
+
 .step3Wrap {
   margin-top: 0;
   margin-left: 0;
@@ -1115,6 +1170,61 @@ body {
   align-items: left;
   margin-top: 7vh;
   margin-left: 0vh;
+}
+
+.profileBlock {
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  margin-top: 7vh;
+  margin-left: -10vh;
+}
+
+.profileBlockNav {
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  margin-top: 3vh;
+  margin-left: -10vh;
+}
+.profileBlockEdit1 {
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  margin-top: 13vh;
+  margin-left: -10vh;
+}
+.profileBlockEdit2 {
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  margin-top: 7vh;
+  margin-left: -10vh;
+}
+
+.profileBlockList {
+  /* margin-left: -100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: left;
+  margin-top: 7vh;
+  margin-left: 15vh;
+  height: 50vh;
+  width: 50vw;
 }
 
 .step3Block {
@@ -1156,6 +1266,18 @@ body {
   margin-top: 0;
   width: 25vw;
   height: 8vh;
+  border: 2px solid rgb(145, 22, 40);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-weight: lighter;
+  font-size: 24px;
+  color: rgb(145, 22, 40);
+  border-radius: 3%;
+}
+
+.profileInput {
+  margin-top: 0;
+  width: 15vw;
+  height: 4vh;
   border: 2px solid rgb(145, 22, 40);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-weight: lighter;
@@ -1213,6 +1335,14 @@ body {
   align-items: center;
 }
 
+.profileWrapButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  /* align-content: flex-end; */
+  align-items: center;
+}
+
 .step3WrapButtons {
   display: flex;
   flex-direction: row;
@@ -1224,6 +1354,60 @@ body {
 .checkedWeather {
   margin-top: 0px;
   margin-right: 0px;
+  width: 9vw;
+  height: 5vh;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.35rem;
+  font-weight: lighter;
+  font-size: 1.6rem;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  background: url('/buttonBack.jpg');
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 50rem;
+}
+
+.checkedProfileData {
+  margin-top: 3vh;
+  margin-right: 3vh;
+  width: 7vw;
+  height: 3vh;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.35rem;
+  font-weight: lighter;
+  font-size: 1.6rem;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  background: url('/buttonBack.jpg');
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 50rem;
+}
+
+.checkedProfile {
+  margin-top: 3vh;
+  margin-right: 3vh;
+  width: 7vw;
+  height: 3vh;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.35rem;
+  font-weight: lighter;
+  font-size: 1.6rem;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  background: url('/buttonBack.jpg');
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 50rem;
+}
+
+.profileButton {
+  margin-top: 0px;
+  margin-right: 1vw;
   width: 9vw;
   height: 5vh;
   border: none;

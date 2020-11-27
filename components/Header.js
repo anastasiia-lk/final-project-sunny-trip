@@ -18,8 +18,8 @@ export default function Header(props) {
         <Link href="/planTrip">
           <a className="headerPics">How it works</a>
         </Link>
-        <Link href="/">
-          <a className="headerPics">Contact</a>
+        <Link href="/login">
+          <a className="headerPics">My trips</a>
         </Link>
         {/* <div className="headerPicsBlock"> */}
         {/* <Link href="/">

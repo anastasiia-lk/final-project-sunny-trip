@@ -23,11 +23,15 @@ export default function Login(props: Props) {
         {/* <div className="indexLocation"> */}
         <div className="loginWrap">
           <div className="loginBlock">
-            <div className="loginTextSmall">Login</div>
+            <div className="loginTextSmall">Before you start</div>
             <div className="loginFlexSmall">
-              before you will start <br />
-              your journey
+              For existing users:
               <br />
+              enter your username and password
+              <br />
+              For new users:
+              <br />
+              click "Registration"
             </div>
           </div>
           <div className="loginBlock">
