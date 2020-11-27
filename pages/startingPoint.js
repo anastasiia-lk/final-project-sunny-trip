@@ -506,7 +506,8 @@ export default function startingPoint(props) {
                       </div>
                     </div>
                     <div className="step3List">
-                      <ul className="tripWeather">
+                      {/* <ul className="tripWeather"> */}
+                      <ul>
                         {dateForecast.map((item) => (
                           <li className="liStyleWeather">
                             {/* {lt}//

@@ -964,7 +964,6 @@ body {
   font-size: 2rem;
   font-weight: 50rem;
   font-family: 'Open Sans', sans-serif;
-  padding-bottom: -100vh;
 }
 
 /* .indexFlex {
@@ -1125,8 +1124,10 @@ body {
   justify-content: center;
   align-content: flex-end;
   align-items: left;
-  margin-top: -15vh;
+  /* margin-top: 5vh; */
   margin-left: 0vh;
+  height: 100%;
+  width: 50vw;
 }
 
 .loginBlock {
@@ -1190,8 +1191,8 @@ body {
 }
 
 .step3List {
-  margin-top: 5vh;
-  margin-left: 10vw;
+  margin-top: 7vh;
+  margin-left: 0vw;
   /* margin-left: -100px; */
   display: flex;
   flex-direction: column;
