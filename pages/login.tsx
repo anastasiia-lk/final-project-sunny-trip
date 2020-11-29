@@ -17,7 +17,7 @@ export default function Login(props: Props) {
   return (
     <Layout loggedIn={props.loggedIn} page="login">
       <Head>
-        <title>Sunny Trip</title>
+        <title>Login</title>
       </Head>
       <main>
         {/* <div className="indexLocation"> */}

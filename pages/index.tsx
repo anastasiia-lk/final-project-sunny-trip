@@ -13,7 +13,7 @@ export default function Home(props: Props) {
   return (
     <Layout loggedIn={props.loggedIn} page="home">
       <Head>
-        <title>Plan Trip</title>
+        <title>Sunny Trip</title>
       </Head>
       <main>
         <div className="indexFlex">Make your trip a</div>

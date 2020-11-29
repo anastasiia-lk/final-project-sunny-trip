@@ -164,7 +164,7 @@ export default function startingPoint(props) {
           return (
             <Layout loggedIn={props.loggedIn} step={step}>
               <Head>
-                <title>Starting Point</title>
+                <title>Plan Trip Step 1</title>
               </Head>
               <main>
                 <div className="step1Wrap">
@@ -221,7 +221,7 @@ export default function startingPoint(props) {
           return (
             <Layout loggedIn={props.loggedIn} step={step}>
               <Head>
-                <title>Maximum Distance</title>
+                <title>Plan Trip Step 2</title>
               </Head>
               <div className="step2Wrap">
                 <div className="step2Block">
@@ -452,7 +452,7 @@ export default function startingPoint(props) {
             <div>
               <Layout loggedIn={props.loggedIn} step={step}>
                 <Head>
-                  <title>Weather Forecast</title>
+                  <title>Plan Trip Step 3</title>
                 </Head>
                 <main>
                   <div className="step3Wrap">

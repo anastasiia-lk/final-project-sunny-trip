@@ -9,7 +9,7 @@ export default function PlanTrip(props) {
   return (
     <Layout loggedIn={props.loggedIn}>
       <Head>
-        <title>Plan Trip</title>
+        <title>How it works</title>
       </Head>
       <main>
         <div className="planTripLocation">
