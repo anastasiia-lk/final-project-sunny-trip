@@ -1,30 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Sunny trip
 
-## Getting Started
+The App allows users to plan their trips based on preffered weather forecast, distance and date of the trip.
 
-First, run the development server:
+### Functionalities
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Users can create accounts, view, add, delete trips to their profile. Users can log in to these accounts and delete the profile.
+- Users can plan trips with 3 short steps:
+  - The App identifies your current location and shows it on the map.
+  - The App finds nearby cities based on the preffered distance and minimum population.
+  - The App shows the weather forecast in the next week in the selected city.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Screenshot](./public/screenshot_1.png)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Technologies
 
-## Learn More
+- Next.js, React.js
+- PostgreSQL
+- Database diagram with SqlDBM
+- API Routes
+- API fetching ([Weather API](https://openweathermap.org/api), [GeoDB API](http://geodb-cities-api.wirefreethought.com/))
+- Authentification/authorization
+- Design with Figma
+- Libraries: google-map-react, nextcookies, ley, dotenv, cypress
+- Deployed via Heroku
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Screenshot](./public/screenshot_2.png)
+![Screenshot](./public/screenshot_3.png)
